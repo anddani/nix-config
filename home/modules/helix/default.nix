@@ -13,6 +13,7 @@
           "C-[" = "jump_backward";
           "C-]" = "jump_forward";
           space = {
+            i = ":toggle lsp.display-inlay-hints";
             t = [
               ":sh rm -f /tmp/unique-file"
               ":insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file"

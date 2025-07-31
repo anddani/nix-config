@@ -27,6 +27,7 @@
     rust-analyzer
     nixpkgs-fmt
     nodePackages_latest.typescript-language-server
+    helix-gpt
 
     # Development
     scrcpy
@@ -43,6 +44,8 @@
     nodePackages.firebase-tools
     nodejs-18_x
     tmux
+    yarn
+    lychee
 
     (google-cloud-sdk.withExtraComponents ([
       google-cloud-sdk.components.gke-gcloud-auth-plugin

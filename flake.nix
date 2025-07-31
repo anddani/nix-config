@@ -17,10 +17,7 @@
   };
   outputs = { self, nixpkgs, darwin, home-manager, ... }@inputs:
     let
-      nixpkgsConfig = {
-        allowUnfree = true;
-        allowUnsupportedSystem = false;
-      };
+      inherit (self) outputs;
       overlays = [
         # ./overlays
         # inputs.emacs-overlay.overlay
@@ -28,6 +25,30 @@
       user = "andredanielsson";
     in
     {
+      # 'nixos-rebuild --flake .#hostname'
+      nixosConfigurations = {
+        t480 = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs outputs;
+          };
+          modules = [
+            ./nixos/t480/configuration.nix
+          ];
+        };
+      };
+
+      # 'home-manager --flake .#hostname'
+      homeConfigurations = {
+        t480 = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x64_64-linux;
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [
+            ./home/nixos.nix
+          ];
+        };
+      };
+
       # M2 mbp 2023
       darwinConfigurations.anddaniM2 = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
