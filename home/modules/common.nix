@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   home.packages = with pkgs; [
     ripgrep
@@ -20,8 +20,16 @@
     starship # terminal prompt
     slides # terminal presentation tool
 
+    
+    inputs.uwu-colors.packages.${pkgs.system}.default
+
     # LSPs
     tailwindcss-language-server
+    vscode-langservers-extracted
+    # lexical
+    elixir-ls
+    emmet-ls
+    # expert-lsp
     nil
     nixd
     rust-analyzer
@@ -42,10 +50,16 @@
     nodePackages.typescript
     nodePackages.pnpm
     nodePackages.firebase-tools
-    nodejs-18_x
+    nodejs
     tmux
     yarn
     lychee
+
+    # Elixir
+    erlang
+    elixir_1_18
+    elixir-ls
+
 
     (google-cloud-sdk.withExtraComponents ([
       google-cloud-sdk.components.gke-gcloud-auth-plugin
@@ -69,6 +83,7 @@
   ];
 
   programs = {
+
     git = {
       enable = true;
       userName = "André Danielsson";

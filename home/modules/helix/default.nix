@@ -107,6 +107,27 @@
             }
           ];
         }
+        {
+          name = "elixir";
+          language-servers = [ "expert-lsp" ];
+          auto-format = true;
+          helix-names = [ "elixir" "heex" "eex" ];
+          formatter = {
+            command = "mix";
+            args = [ "format" "--stdin-filename" "%{buffer_name}" ];
+          };
+          extra-servers = {
+            heex = [
+              "emmet-ls"
+              "tailwind-lsp"
+              # "uwu-colors" # REQUIRES NEW NIX FLAKE
+            ];
+            eex = [
+              "emmet-ls"
+              # "uwu-colors" # REQUIRES NEW NIX FLAKE
+            ];
+          };
+        }
       ];
     };
   };

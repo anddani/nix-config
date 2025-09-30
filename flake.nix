@@ -13,7 +13,9 @@
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    expert-lsp.url = "github:elixir-lang/expert";
     helix.url = "github:helix-editor/helix/master";
+    uwu-colors.url = "github:q60/uwu_colors";
   };
   outputs = { self, nixpkgs, darwin, home-manager, ... }@inputs:
     let
