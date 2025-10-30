@@ -1,100 +1,54 @@
 {
-  description = "My machines";
+  description = "FrostPhoenix's nixos configuration";
 
   inputs = {
-    nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixos-unstable";
-    };
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nur.url = "github:nix-community/NUR";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    darwin = {
-      url = "github:lnl7/nix-darwin/master";
+
+    nix-gaming.url = "github:fufexan/nix-gaming";
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
+
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    expert-lsp.url = "github:elixir-lang/expert";
-    helix.url = "github:helix-editor/helix/master";
-    uwu-colors.url = "github:q60/uwu_colors";
+
+    maple-mono = {
+      url = "github:subframe7536/maple-font/variable";
+      flake = false;
+    };
+
+    superfile.url = "github:yorukot/superfile";
+    vicinae.url = "github:vicinaehq/vicinae";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake/beta";
   };
-  outputs = { self, nixpkgs, darwin, home-manager, ... }@inputs:
+
+  outputs =
+    { nixpkgs, self, ... }@inputs:
     let
-      inherit (self) outputs;
-      overlays = [
-        # ./overlays
-        # inputs.emacs-overlay.overlay
-      ];
-      user = "andredanielsson";
+      username = "anddani";
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+      lib = nixpkgs.lib;
     in
     {
-      # 'nixos-rebuild --flake .#hostname'
       nixosConfigurations = {
-        t480 = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
+        desktop = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [ ./hosts/desktop ];
           specialArgs = {
-            inherit inputs outputs;
+            host = "desktop";
+            inherit self inputs username;
           };
-          modules = [
-            ./nixos/t480/configuration.nix
-          ];
         };
-      };
-
-      # 'home-manager --flake .#hostname'
-      homeConfigurations = {
-        t480 = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x64_64-linux;
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [
-            ./home/nixos.nix
-          ];
-        };
-      };
-
-      # M2 mbp 2023
-      darwinConfigurations.anddaniM2 = darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
-        # makes all inputs availble in imported files
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./darwin/mbp2023/configuration.nix
-          ./darwin/homebrew.nix
-          ({ pkgs, ... }: {
-            nixpkgs.overlays = overlays;
-
-            nix = {
-              # Enable flakes by default
-              package = pkgs.nixVersions.stable;
-              settings = {
-                allowed-users = [ user ];
-                trusted-users = [ user ];
-                extra-trusted-users = [ user ];
-                experimental-features = [ "nix-command" "flakes" ];
-                extra-platforms = [ "x86_64-darwin" "aarch64-darwin" ];
-              };
-            };
-
-            users.users.${user} = {
-              home = "/Users/${user}";
-              shell = pkgs.zsh;
-            };
-          })
-          home-manager.darwinModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              # makes all inputs available in imported files for hm
-              extraSpecialArgs = { inherit inputs; };
-              users.andredanielsson = { ... }: with inputs; {
-                imports = [
-                  ./home/mac.nix
-                  ./darwin
-                ];
-              };
-            };
-          }
-        ];
       };
     };
 }
