@@ -15,6 +15,7 @@
     ./hyprland                        # window manager
     ./lazygit.nix
     ./nemo.nix                        # file manager
+    ./niri
     ./nvim.nix                        # neovim editor
     ./obsidian.nix
     ./p10k/p10k.nix

@@ -6,10 +6,15 @@
       xkb.layout = "us,sv";
     };
 
-    displayManager.autoLogin = {
+    displayManager.sddm = {
       enable = true;
-      user = "${username}";
+      wayland.enable = true;
     };
+
+    # displayManager.autoLogin = {
+    #   enable = true;
+    #   user = "${username}";
+    # };
     libinput = {
       enable = true;
     };
