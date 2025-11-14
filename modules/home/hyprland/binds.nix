@@ -31,7 +31,6 @@
       "$mainMod SHIFT, B, exec, toggle-waybar"
       "$mainMod, C ,exec, hyprpicker -a"
       "$mainMod, W,exec, wallpaper-picker"
-      "$mainMod SHIFT, W,exec, hyprctl dispatch exec '[float; size 925 615] waypaper'"
       "$mainMod, N, exec, swaync-client -t -sw"
       "$mainMod, equal, exec, woomer"
 
