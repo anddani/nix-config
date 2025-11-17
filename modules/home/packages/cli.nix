@@ -34,7 +34,36 @@
     wl-clipboard                      # clipboard utils for wayland (wl-copy, wl-paste)
     xdg-utils
 
+    ## For btop
+    nvtopPackages.intel
+
     winetricks
     wineWowPackages.waylandFull
   ];
+
+  programs = {
+    btop = {
+      enable = true;
+
+      settings = {
+        color_theme = "TTY";
+        theme_background = false;
+        update_ms = 500;
+        rounded_corners = false;
+      };
+    };
+    
+    lazygit = {
+      enable = true;
+
+      settings = {
+        gui.border = "single";
+      };
+    };
+
+    neovim = {
+      enable = true;
+      vimAlias = true;
+    };
+  };
 }

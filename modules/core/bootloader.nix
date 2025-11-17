@@ -7,7 +7,6 @@
       systemd-boot.configurationLimit = 10;
     };
 
-    kernelPackages = pkgs.linuxPackages_zen;
     supportedFilesystems = [ "ntfs" ];
   };
 }

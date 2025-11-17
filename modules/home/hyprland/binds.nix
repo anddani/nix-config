@@ -7,7 +7,6 @@
 
     bind = [
       # show keybinds list
-      "$mainMod, F1, exec, show-keybinds"
 
       # keybindings
       "$mainMod, Return, exec, ghostty --gtk-single-instance=true"
@@ -17,7 +16,6 @@
       "$mainMod, Q, killactive,"
       "$mainMod, F, fullscreen, 0"
       "$mainMod SHIFT, F, fullscreen, 1"
-      "$mainMod, Space, exec, toggle-float"
       "$mainMod, D, exec, vicinae vicinae://toggle"
       "$mainMod SHIFT, D, exec, webcord --enable-features=UseOzonePlatform --ozone-platform=wayland"
       "$mainMod, Escape, exec, swaylock"
@@ -25,19 +23,11 @@
       "$mainMod SHIFT, Escape, exec, power-menu"
       "$mainMod, P, pseudo,"
       "$mainMod, X, togglesplit,"
-      "$mainMod, T, exec, toggle-oppacity"
       "$mainMod, E, exec, nemo"
       "ALT, E, exec, hyprctl dispatch exec '[float; size 1111 700] nemo'"
-      "$mainMod SHIFT, B, exec, toggle-waybar"
       "$mainMod, C ,exec, hyprpicker -a"
-      "$mainMod, W,exec, wallpaper-picker"
       "$mainMod, N, exec, swaync-client -t -sw"
       "$mainMod, equal, exec, woomer"
-
-      # screenshot
-      ",Print, exec, screenshot --copy"
-      "$mainMod, Print, exec, screenshot --save"
-      "$mainMod SHIFT, Print, exec, screenshot --swappy"
 
       # switch focus
       "$mainMod, left,  movefocus, l"

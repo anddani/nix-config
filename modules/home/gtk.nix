@@ -9,13 +9,14 @@
     twemoji-color-font
     noto-fonts-emoji
     fantasque-sans-mono
-    maple-mono-custom
+    # maple-mono-custom
   ];
 
   gtk = {
     enable = true;
     font = {
-      name = "Maple Mono";
+      # name = "Maple Mono";
+      name = "Fira Code";
       size = 12;
     };
     theme = {

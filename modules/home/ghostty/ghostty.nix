@@ -1,4 +1,4 @@
-{ host, ... }:
+{ ... }:
 {
   programs.ghostty = {
     enable = true;
@@ -7,7 +7,7 @@
     settings = {
       ##### Font #####
       font-family = [
-        "Maple Mono"
+        "Fira Code"
         # "DejaVu Sans"
       ];
       font-size = "18";
@@ -19,7 +19,7 @@
 
       ##### Theme #####
       theme = "gruvbox";
-      background-opacity = 0.5;
+      background-opacity = 0.90;
       adjust-cursor-thickness = 1;
 
       selection-clear-on-copy = true;

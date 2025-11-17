@@ -24,7 +24,7 @@ debug = false
 ignore_missing_fields = false
 
 # ========== Style ========== #
-code_previewer = 'bat'
+code_previewer = 'cat'
 nerdfont = true
 transparent_background = true
 

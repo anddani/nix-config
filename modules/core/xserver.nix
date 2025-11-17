@@ -3,7 +3,7 @@
   services = {
     xserver = {
       enable = true;
-      xkb.layout = "us,sv";
+      xkb.layout = "us";
     };
 
     displayManager.sddm = {

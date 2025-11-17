@@ -4,7 +4,6 @@
     ./aseprite/aseprite.nix           # pixel art editor
     ./audacious/audacious.nix         # music player
     ./browser.nix                     # firefox based browser
-    ./btop.nix                        # resouces monitor
     ./fastfetch/fastfetch.nix         # fetch tool
     ./fzf.nix                         # fuzzy finder
     ./gaming.nix                      # packages related to gaming
@@ -12,11 +11,10 @@
     ./git.nix                         # version control
     ./gnome.nix                       # gnome apps
     ./gtk.nix                         # gtk theme
+    ./helix
     ./hyprland                        # window manager
-    ./lazygit.nix
     ./nemo.nix                        # file manager
     ./niri
-    ./nvim.nix                        # neovim editor
     ./obsidian.nix
     ./p10k/p10k.nix
     ./packages                        # other packages
@@ -30,6 +28,7 @@
     ./swaync/swaync.nix               # notification deamon
     ./vicinae/vicinae.nix             # launcher
     ./waybar                          # status bar
+    ./zed.nix
     ./zsh                             # shell
   ];
 }

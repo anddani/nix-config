@@ -9,5 +9,6 @@
     dconf-editor
     gnome-disk-utility
 
+    slack
   ];
 }

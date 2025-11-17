@@ -2,7 +2,7 @@
 {
   wayland.windowManager.hyprland.settings = {
     input = {
-      kb_layout = "us,sv";
+      kb_layout = "us";
       kb_options = "grp:alt_space_toggle";
       numlock_by_default = true;
       repeat_delay = 300;
@@ -16,7 +16,7 @@
     };
 
     general = {
-      "$mainMod" = "ALT";
+      "$mainMod" = "SUPER";
       layout = "dwindle";
       gaps_in = 6;
       gaps_out = 12;

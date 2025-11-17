@@ -1,187 +1,281 @@
-{ host, ... }:
-let
-  custom = {
-    font = "Maple Mono";
-    font_size = "18px";
-    font_weight = "bold";
-    text_color = "#FBF1C7";
-    background_0 = "#1D2021";
-    background_1 = "#282828";
-    border_color = "#928374";
-    red = "#CC241D";
-    green = "#98971A";
-    yellow = "#FABD2F";
-    blue = "#458588";
-    magenta = "#B16286";
-    cyan = "#689D6A";
-    orange = "#D65D0E";
-    opacity = "1";
-    indicator_height = "2px";
-  };
-in
+# From: https://github.com/dileep-kishore/nixos-config
+{ pkgs, ... }:
 {
-  programs.waybar.settings.mainBar = with custom; {
-    position = "bottom";
-    layer = "top";
-    height = 28;
-    margin-top = 0;
-    margin-bottom = 0;
-    margin-left = 0;
-    margin-right = 0;
-    modules-left = [
-      "custom/launcher"
-      "hyprland/workspaces"
-      "tray"
-    ];
-    modules-center = [ "clock" ];
-    modules-right = [
-      "cpu"
-      "memory"
-      (if (host == "desktop") then "disk" else "")
-      "pulseaudio"
-      "network"
-      "battery"
-      "hyprland/language"
-      "custom/notification"
-      "custom/power-menu"
-    ];
-    clock = {
-      calendar = {
-        format = {
-          today = "<span color='#98971A'><b>{}</b></span>";
+  programs.waybar = {
+    enable = true;
+    # systemd.enable = true;
+    style = ./style.css;
+    settings = {
+      mainBar = {
+        layer = "top";
+        position = "top";
+        mod = "dock";
+        margin-left = 15;
+        margin-right = 15;
+        margin-top = 4;
+        margin-bottom = 4;
+        reload_style_on_change = true;
+        spacing = 0;
+        modules-left = [
+          # "custom/spacer"
+          "image"
+          "wlr/taskbar"
+          "niri/window"
+          "custom/window-icon"
+          "mpris"
+          "custom/mpris-icon"
+        ];
+        modules-center = [
+          "niri/workspaces"
+        ];
+        modules-right = [
+          "custom/clock-icon"
+          "clock"
+          "custom/tray-icon"
+          "memory"
+          "cpu"
+          "network"
+          "pulseaudio"
+          "tray"
+        ];
+
+        # Module configuration: Left
+        "custom/spacer" = {
+          format = "   ";
+          on-click = "niri msg action toggle-overview";
+        };
+        "image" = {
+          path = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake-white.svg";
+          on-click = "niri msg action toggle-overview";
+          size = 22;
+          tooltip = false;
+        };
+        "hyprland/workspaces" = {
+          disable-scroll = false;
+          all-outputs = false;
+          active-only = false;
+          format = "<span><b>{icon}</b></span>";
+          format-icons = {
+            "1" = "1";
+            "2" = "2";
+            "3" = "3";
+            "4" = "4";
+            "5" = "5";
+            "6" = "6";
+            "7" = "7";
+            "8" = "8";
+            "9" = "9";
+            urgent = " ";
+          };
+        };
+        "niri/workspaces" = {
+          all-outputs = false;
+          on-click = "activate";
+          current-only = false;
+          disable-scroll = false;
+          icon-theme = "Papirus-Dark";
+          format = "<span><b>{icon}</b></span>";
+          format-icons = {
+            "1" = "1";
+            "2" = "2";
+            "3" = "3";
+            "4" = "4";
+            "5" = "5";
+            "6" = "6";
+            "7" = "7";
+            "8" = "8";
+            "9" = "9";
+          };
+        };
+        "wlr/taskbar" = {
+          all-outputs = false;
+          format = "{icon}";
+          icon-theme = "Papirus-Dark";
+          icon-size = 16;
+          tooltip = true;
+          tooltip-format = "{title}";
+          active-first = true;
+          on-click = "activate";
+        };
+        "hyprland/window" = {
+          max-length = 50;
+          format = "<i>{title}</i>";
+          separate-outputs = true;
+          icon = true;
+          icon-size = 13;
+        };
+        "niri/window" = {
+          max-length = 50;
+          format = "{app_id}";
+          separate-outputs = true;
+          on-click = "walker --modules windows";
+          # icon = true;
+          # icon-size = 18;
+          rewrite = {
+            "" = "<span foreground='#89b4fa'> Niri</span>";
+            " " = "<span foreground='#89b4fa'> Niri</span>";
+            # terminals
+            "com.mitchellh.ghostty" = "<span foreground='#89b4fa'>󰊠 Ghostty</span>";
+            "org.wezfurlong.wezterm" = "<span foreground='#89b4fa'> Wezterm</span>";
+            "kitty" = "<span foreground='#89b4fa'>󰄛 Kitty</span>";
+            # code
+            "code" = "<span foreground='#89b4fa'>󰨞 Code</span>";
+            "Cursor" = "<span foreground='#89b4fa'>󰨞 Cursor</span>";
+            # browsers
+            "brave-browser" = "<span foreground='#89b4fa'> Brave</span>";
+            "Vivaldi-stable" = "<span foreground='#89b4fa'> Vivaldi</span>";
+            "firefox" = "<span foreground='#89b4fa'> Firefox</span>";
+            "zen" = "<span foreground='#89b4fa'> Zen</span>";
+            # gnome/gtk
+            "org.gnome.Nautilus" = "<span foreground='#89b4fa'>󰪶 Files</span>";
+            # misc
+            "spotify" = "<span foreground='#89b4fa'> Spotify</span>";
+            "Slack" = "<span foreground='#89b4fa'> Slack</span>";
+            "signal" = "<span foreground='#89b4fa'>󰭹 Signal</span>";
+            # Productivity
+            "Morgen" = "<span foreground='#89b4fa'> Morgen</span>";
+            "org.kde.okular" = "<span foreground='#89b4fa'> Okular</span>";
+            "tana" = "<span foreground='#89b4fa'>󰠮 Tana</span>";
+            "obsidian" = "<span foreground='#89b4fa'>󰠮 Obsdian</span>";
+            "Zotero" = "<span foreground='#89b4fa'>󰬡 Zotero</span>";
+            "org.pulseaudio.pavucontrol" = "<span foreground='#89b4fa'> Pavucontrol</span>";
+            # Everything else
+            "(.*)" = "<span foreground='#89b4fa'>$1</span>";
+          };
+        };
+
+        # Module configuration: Center
+        clock = {
+          format = "<b>{:%a %b[%m] %d ▒ %I:%M %p}</b>";
+          tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+          format-alt = "{:%H:%M %Y-%m-%d}";
+        };
+
+        # Module configuration: Right
+        pulseaudio = {
+          format = "{icon}";
+          format-bluetooth = "󰂰";
+          format-muted = "";
+          tooltip-format = "{name} {volume}%";
+          format-icons = {
+            "alsa_output.pci-0000_00_1f.3.analog-stereo" = "";
+            "alsa_output.pci-0000_00_1f.3.analog-stereo-muted" = "";
+            headphone = "";
+            hands-free = "";
+            headset = "";
+            phone = "";
+            phone-muted = "";
+            portable = "";
+            car = "";
+            default = [
+              ""
+              ""
+            ];
+          };
+          scroll-step = 1;
+          on-click = "pavucontrol";
+        };
+        network = {
+          format-wifi = " ";
+          format-ethernet = " ";
+          tooltip-format = "{essid} ({signalStrength}%)";
+          format-linked = "󰛵 ";
+          format-disconnected = "󰅛 ";
+          format-alt = "{ifname}: {ipaddr}/{cidr}";
+        };
+        memory = {
+          interval = 1;
+          rotate = 270;
+          format = "{icon}";
+          format-icons = [
+            "<span color='#b4befe'>󰝦</span>"
+            "<span color='#b4befe'>󰪞</span>"
+            "<span color='#a6e3a1'>󰪟</span>"
+            "<span color='#a6e3a1'>󰪠</span>"
+            "<span color='#f9e2af'>󰪡</span>"
+            "<span color='#fab387'>󰪢</span>"
+            "<span color='#eba0ac'>󰪣</span>"
+            "<span color='#f38ba8'>󰪤</span>"
+            "<span color='#f38ba8'>󰪥</span>"
+          ];
+          max-length = 10;
+        };
+        cpu = {
+          interval = 1;
+          format = "{icon}";
+          rotate = 270;
+          format-icons = [
+            "<span color='#b4befe'>󰝦</span>"
+            "<span color='#b4befe'>󰪞</span>"
+            "<span color='#a6e3a1'>󰪟</span>"
+            "<span color='#a6e3a1'>󰪠</span>"
+            "<span color='#f9e2af'>󰪡</span>"
+            "<span color='#fab387'>󰪢</span>"
+            "<span color='#eba0ac'>󰪣</span>"
+            "<span color='#f38ba8'>󰪤</span>"
+            "<span color='#f38ba8'>󰪥</span>"
+          ];
+        };
+        tray = {
+          icon-size = 18;
+          spacing = 10;
+        };
+        mpris = {
+          interval = 2;
+          format = "{player_icon}{dynamic}{status_icon}";
+          format-paused = "{player_icon}{dynamic}{status_icon}";
+          tooltip = true;
+          tooltip-format = "{dynamic}";
+          on-click = "playerctl play-pause";
+          on-click-middle = "playerctl previous";
+          on-click-right = "playerctl next";
+          scroll-step = 5.0;
+          smooth-scrolling-threshold = 1;
+          dynamic-len = 30;
+          player-icons = {
+            chromium = " ";
+            brave-browser = " ";
+            default = " ";
+            firefox = " ";
+            kdeconnect = " ";
+            mopidy = " ";
+            mpv = "󰐹 ";
+            spotify = " ";
+            vlc = "󰕼 ";
+          };
+          status-icons = {
+            playing = "";
+            paused = "";
+            stopped = "";
+          };
+        };
+        # Custom icons
+        "custom/audio-icon" = {
+          format = "";
+        };
+        "custom/network-icon" = {
+          format = "󰖩";
+        };
+        "custom/clock-icon" = {
+          format = "";
+        };
+        "custom/mpris-icon" = {
+          format = " ";
+        };
+        "custom/idle-icon" = {
+          format = " ";
+        };
+        "custom/tray-icon" = {
+          format = "󱊖";
+          on-click = "swaync-client -t";
+          tooltip = "Notification center";
+        };
+        "custom/window-icon" = {
+          format = " ";
+          on-click = "walker --modules windows";
+          tooltip = "Window list";
         };
       };
-      format = "  {:%H:%M}";
-      tooltip = "true";
-      tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-      format-alt = "  {:%d/%m}";
-    };
-    "hyprland/workspaces" = {
-      active-only = false;
-      disable-scroll = true;
-      format = "{icon}";
-      on-click = "activate";
-      format-icons = {
-        "1" = "I";
-        "2" = "II";
-        "3" = "III";
-        "4" = "IV";
-        "5" = "V";
-        "6" = "VI";
-        "7" = "VII";
-        "8" = "VIII";
-        "9" = "IX";
-        "10" = "X";
-        sort-by-number = true;
-      };
-      persistent-workspaces = {
-        "1" = [ ];
-        "2" = [ ];
-        "3" = [ ];
-        "4" = [ ];
-        "5" = [ ];
-      };
-    };
-    cpu = {
-      format = "<span foreground='${green}'> </span> {usage}%";
-      format-alt = "<span foreground='${green}'> </span> {avg_frequency} GHz";
-      interval = 2;
-      on-click-right = "hyprctl dispatch exec '[float; center; size 950 650] ghostty -e btop'";
-    };
-    memory = {
-      format = "<span foreground='${cyan}'>󰟜 </span>{}%";
-      format-alt = "<span foreground='${cyan}'>󰟜 </span>{used} GiB"; # 
-      interval = 2;
-      on-click-right = "hyprctl dispatch exec '[float; center; size 950 650] ghostty -e btop'";
-    };
-    disk = {
-      # path = "/";
-      format = "<span foreground='${orange}'>󰋊 </span>{percentage_used}%";
-      interval = 60;
-      on-click-right = "hyprctl dispatch exec '[float; center; size 950 650] ghostty -e btop'";
-    };
-    network = {
-      format-wifi = "<span foreground='${magenta}'> </span> {signalStrength}%";
-      format-ethernet = "<span foreground='${magenta}'>󰀂 </span>";
-      tooltip-format = "Connected to {essid} {ifname} via {gwaddr}";
-      format-linked = "{ifname} (No IP)";
-      format-disconnected = "<span foreground='${magenta}'>󰖪 </span>";
-    };
-    tray = {
-      icon-size = 20;
-      spacing = 8;
-    };
-    pulseaudio = {
-      format = "{icon} {volume}%";
-      format-muted = "<span foreground='${blue}'> </span> {volume}%";
-      format-icons = {
-        default = [ "<span foreground='${blue}'> </span>" ];
-      };
-      scroll-step = 2;
-      on-click = "pamixer -t";
-      on-click-right = "pavucontrol";
-    };
-    battery = {
-      format = "<span foreground='${yellow}'>{icon}</span> {capacity}%";
-      format-icons = [
-        " "
-        " "
-        " "
-        " "
-        " "
-      ];
-      format-charging = "<span foreground='${yellow}'> </span>{capacity}%";
-      format-full = "<span foreground='${yellow}'> </span>{capacity}%";
-      format-warning = "<span foreground='${yellow}'> </span>{capacity}%";
-      interval = 5;
-      states = {
-        warning = 20;
-      };
-      format-time = "{H}h{M}m";
-      tooltip = true;
-      tooltip-format = "{time}";
-    };
-    "hyprland/language" = {
-      tooltip = true;
-      tooltip-format = "Keyboard layout";
-      format = "<span foreground='#FABD2F'> </span> {}";
-      format-fr = "FR";
-      format-en = "US";
-      on-click = "hyprctl switchxkblayout at-translated-set-2-keyboard next";
-    };
-    "custom/launcher" = {
-      format = "";
-      on-click = "random-wallpaper";
-      on-click-right = "rofi -show drun";
-      tooltip = "true";
-      tooltip-format = "Random Wallpaper";
-    };
-    "custom/notification" = {
-      tooltip = true;
-      tooltip-format = "Notifications";
-      format = "{icon}";
-      format-icons = {
-        notification = "<span foreground='red'><sup></sup></span>";
-        none = "";
-        dnd-notification = "<span foreground='red'><sup></sup></span>";
-        dnd-none = "";
-        inhibited-notification = "<span foreground='red'><sup></sup></span>";
-        inhibited-none = "";
-        dnd-inhibited-notification = "<span foreground='red'><sup></sup></span>";
-        dnd-inhibited-none = "";
-      };
-      return-type = "json";
-      exec-if = "which swaync-client";
-      exec = "swaync-client -swb";
-      on-click = "swaync-client -t -sw";
-      on-click-right = "swaync-client -d -sw";
-      escape = true;
-    };
-    "custom/power-menu" = {
-      tooltip = true;
-      tooltip-format = "Power menu";
-      format = "<span foreground='${red}'> </span>";
-      on-click = "power-menu";
     };
   };
 }
