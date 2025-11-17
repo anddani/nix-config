@@ -44,7 +44,7 @@ input {
 }
 output "HDMI-A-1" {
     mode "3840x2160@60"
-    scale 1.2
+    scale 1.5
     transform "normal"
     // position x=1280 y=0
 }
@@ -477,7 +477,8 @@ layer-rule {
 }
 environment {
     NIXOS_OZONE_WL "1"
-    SSH_AUTH_SOCK = "/run/user/1000/ssh-agent";
+    SSH_AUTH_SOCK "/run/user/1000/ssh-agent"
+    DIRENV_LOG_FORMAT ""
     // XDG_CURRENT_DESKTOP "niri"
     // GTK_USE_PORTAL "1"
     // MOZ_ENABLE_WAYLAND "1"

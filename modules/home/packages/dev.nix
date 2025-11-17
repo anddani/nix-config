@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    direnv
+
     ## Lsp
     nixd # nix
 
