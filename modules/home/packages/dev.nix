@@ -12,5 +12,9 @@
     ## Python
     python3
     python312Packages.ipython
+
+    ## JS
+    nodejs
+    yarn
   ];
 }

@@ -29,6 +29,6 @@
     ./vicinae/vicinae.nix             # launcher
     ./waybar                          # status bar
     ./zed.nix
-    ./zsh                             # shell
+    ./zsh.nix                             # shell
   ];
 }

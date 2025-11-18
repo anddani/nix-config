@@ -1,9 +1,9 @@
 input {
     keyboard {
-        // xkb {
-        //     layout "us"
-        //     options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
-        // }
+        xkb {
+            layout "us,se"
+            options "grp:alt_space_toggle"
+        }
         numlock
     }
     touchpad {
@@ -176,10 +176,6 @@ animations {
 }
 
 window-rule {
-  opacity 1.0
-}
-
-window-rule {
     // This regular expression is intentionally made as specific as possible,
     // since this is the default config, and we want no false positives.
     // You can get away with just app-id="wezterm" if you want.
@@ -228,8 +224,11 @@ window-rule {
 }
 
 window-rule {
+    opacity 1.0
     geometry-corner-radius 6
     clip-to-geometry true
+    // Do not draw color tint on top of focused window
+    draw-border-with-background false
 }
 
 
@@ -453,6 +452,7 @@ binds {
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
+    Mod+Shift+4 { screenshot; }
 
     // Applications such as remote-desktop clients and software KVM switches may
     // request that niri stops processing the keyboard shortcuts defined here

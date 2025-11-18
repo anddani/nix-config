@@ -33,6 +33,7 @@
     wget
     wl-clipboard                      # clipboard utils for wayland (wl-copy, wl-paste)
     xdg-utils
+    yazi
 
     ## For btop
     nvtopPackages.intel
