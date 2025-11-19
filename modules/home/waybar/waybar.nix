@@ -1,6 +1,6 @@
-{ inputs, ... }:
+{ ... }:
 {
-  imports = [ inputs.catppuccin.homeModules.catppuccin ];
+  # imports = [ inputs.catppuccin.homeModules.catppuccin ];
   programs.waybar = {
     enable = true;
   };

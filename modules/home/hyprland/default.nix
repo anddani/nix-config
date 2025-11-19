@@ -8,6 +8,5 @@
     ./binds.nix
     ./windowrules.nix
     ./hyprlock.nix
-    ./variables.nix
   ];
 }

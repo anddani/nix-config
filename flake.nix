@@ -18,16 +18,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    maple-mono = {
-      url = "github:subframe7536/maple-font/variable";
-      flake = false;
-    };
-
     superfile.url = "github:yorukot/superfile";
     vicinae.url = "github:vicinaehq/vicinae";
     zen-browser.url = "github:0xc000022070/zen-browser-flake/beta";
-
-    catppuccin.url = "github:catppuccin/nix";
   };
 
   outputs =

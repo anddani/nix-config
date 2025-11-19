@@ -194,6 +194,19 @@ window-rule {
     tiled-state true
 }
 
+// Fullscreen
+window-rule {
+	match title="Steam,Zed"
+	default-column-width { proportion 1.0; }
+}
+// floating windows
+window-rule {
+	match title="Steam Settings|Friends List"
+	default-column-width { proportion 0.4; }
+	default-window-height { proportion 0.8; }
+	open-floating true
+}
+
 workspace "1"
 workspace "2"
 workspace "3"
@@ -233,6 +246,8 @@ window-rule {
 
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
+xwayland-satellite
+// spawn-at-startup "xwayland-satellite"
 spawn-at-startup "swaync"
 spawn-at-startup "waybar"
 spawn-at-startup "ghostty"
@@ -477,7 +492,6 @@ layer-rule {
 }
 environment {
     NIXOS_OZONE_WL "1"
-    SSH_AUTH_SOCK "/run/user/1000/ssh-agent"
     DIRENV_LOG_FORMAT ""
     // XDG_CURRENT_DESKTOP "niri"
     // GTK_USE_PORTAL "1"

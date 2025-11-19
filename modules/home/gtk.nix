@@ -7,15 +7,13 @@
     nerd-fonts.caskaydia-cove
     nerd-fonts.symbols-only
     twemoji-color-font
-    noto-fonts-emoji
+    noto-fonts-color-emoji
     fantasque-sans-mono
-    # maple-mono-custom
   ];
 
   gtk = {
     enable = true;
     font = {
-      # name = "Maple Mono";
       name = "Fira Code";
       size = 12;
     };

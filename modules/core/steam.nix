@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+  environment.systemPackages = with pkgs; [ gamescope ];
   programs = {
     steam = {
       enable = true;
@@ -12,13 +13,13 @@
       extraCompatPackages = [ pkgs.proton-ge-bin ];
     };
 
-    gamescope = {
-      enable = true;
-      capSysNice = true;
-      args = [
-        "--rt"
-        "--expose-wayland"
-      ];
-    };
+    # gamescope = {
+    #   enable = true;
+    #   capSysNice = true;
+    #   args = [
+    #     "--rt"
+    #     "--expose-wayland"
+    #   ];
+    # };
   };
 }

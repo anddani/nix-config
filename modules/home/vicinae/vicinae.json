@@ -1,7 +1,7 @@
 {
     "faviconService": "twenty",
     "font": {
-        "normal": "Maple Mono",
+        "normal": "Fira Code",
         "size": 12
     },
     "popToRootOnClose": true,

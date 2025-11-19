@@ -17,33 +17,26 @@
         reload_style_on_change = true;
         spacing = 0;
         modules-left = [
-          # "custom/spacer"
           "image"
           "wlr/taskbar"
           "niri/window"
           "custom/window-icon"
-          "mpris"
           "custom/mpris-icon"
         ];
         modules-center = [
           "niri/workspaces"
         ];
         modules-right = [
+          "memory"
           "custom/clock-icon"
           "clock"
           "custom/tray-icon"
-          "memory"
           "cpu"
           "network"
-          "pulseaudio"
           "tray"
         ];
 
         # Module configuration: Left
-        "custom/spacer" = {
-          format = "   ";
-          on-click = "niri msg action toggle-overview";
-        };
         "image" = {
           path = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake-white.svg";
           on-click = "niri msg action toggle-overview";
@@ -126,6 +119,8 @@
             "Vivaldi-stable" = "<span foreground='#89b4fa'> Vivaldi</span>";
             "firefox" = "<span foreground='#89b4fa'> Firefox</span>";
             "zen" = "<span foreground='#89b4fa'> Zen</span>";
+            "zen-beta" = "<span foreground='#89b4fa'> Zen</span>";
+            "dev.zed.Zed" = "<span foreground='#89b4fa'> Zed</span>";
             # gnome/gtk
             "org.gnome.Nautilus" = "<span foreground='#89b4fa'>󰪶 Files</span>";
             # misc
@@ -146,35 +141,10 @@
 
         # Module configuration: Center
         clock = {
-          format = "<b>{:%a %b[%m] %d ▒ %I:%M %p}</b>";
+          format = "{:%H:%M %Y-%m-%d}";
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-          format-alt = "{:%H:%M %Y-%m-%d}";
         };
 
-        # Module configuration: Right
-        pulseaudio = {
-          format = "{icon}";
-          format-bluetooth = "󰂰";
-          format-muted = "";
-          tooltip-format = "{name} {volume}%";
-          format-icons = {
-            "alsa_output.pci-0000_00_1f.3.analog-stereo" = "";
-            "alsa_output.pci-0000_00_1f.3.analog-stereo-muted" = "";
-            headphone = "";
-            hands-free = "";
-            headset = "";
-            phone = "";
-            phone-muted = "";
-            portable = "";
-            car = "";
-            default = [
-              ""
-              ""
-            ];
-          };
-          scroll-step = 1;
-          on-click = "pavucontrol";
-        };
         network = {
           format-wifi = " ";
           format-ethernet = " ";
@@ -186,18 +156,21 @@
         memory = {
           interval = 1;
           rotate = 270;
-          format = "{icon}";
-          format-icons = [
-            "<span color='#b4befe'>󰝦</span>"
-            "<span color='#b4befe'>󰪞</span>"
-            "<span color='#a6e3a1'>󰪟</span>"
-            "<span color='#a6e3a1'>󰪠</span>"
-            "<span color='#f9e2af'>󰪡</span>"
-            "<span color='#fab387'>󰪢</span>"
-            "<span color='#eba0ac'>󰪣</span>"
-            "<span color='#f38ba8'>󰪤</span>"
-            "<span color='#f38ba8'>󰪥</span>"
-          ];
+          # format = "{icon}";
+          # format-icons = [
+          #   "<span color='#b4befe'>󰝦</span>"
+          #   "<span color='#b4befe'>󰪞</span>"
+          #   "<span color='#a6e3a1'>󰪟</span>"
+          #   "<span color='#a6e3a1'>󰪠</span>"
+          #   "<span color='#f9e2af'>󰪡</span>"
+          #   "<span color='#fab387'>󰪢</span>"
+          #   "<span color='#eba0ac'>󰪣</span>"
+          #   "<span color='#f38ba8'>󰪤</span>"
+          #   "<span color='#f38ba8'>󰪥</span>"
+          # ];
+          format = "{}%";
+          tooltip = true;
+          tooltip-format = "{used:0.1f}G/{total:0.1f}";
           max-length = 10;
         };
         cpu = {
@@ -220,36 +193,6 @@
           icon-size = 18;
           spacing = 10;
         };
-        mpris = {
-          interval = 2;
-          format = "{player_icon}{dynamic}{status_icon}";
-          format-paused = "{player_icon}{dynamic}{status_icon}";
-          tooltip = true;
-          tooltip-format = "{dynamic}";
-          on-click = "playerctl play-pause";
-          on-click-middle = "playerctl previous";
-          on-click-right = "playerctl next";
-          scroll-step = 5.0;
-          smooth-scrolling-threshold = 1;
-          dynamic-len = 30;
-          player-icons = {
-            chromium = " ";
-            brave-browser = " ";
-            default = " ";
-            firefox = " ";
-            kdeconnect = " ";
-            mopidy = " ";
-            mpv = "󰐹 ";
-            spotify = " ";
-            vlc = "󰕼 ";
-          };
-          status-icons = {
-            playing = "";
-            paused = "";
-            stopped = "";
-          };
-        };
-        # Custom icons
         "custom/audio-icon" = {
           format = "";
         };
