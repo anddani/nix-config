@@ -1,3 +1,9 @@
+//      ____   __  
+//     /  _/ / __ \
+//     / /  / / / /
+//   _/ /  / /_/ /
+//  /___/  \____/
+//
 input {
     keyboard {
         xkb {
@@ -7,56 +13,34 @@ input {
         numlock
     }
     touchpad {
-        // off
         tap
-        // dwt
-        // dwtp
-        // drag false
-        // drag-lock
         natural-scroll
-        // accel-speed 0.2
-        // accel-profile "flat"
-        // scroll-method "two-finger"
-        // disabled-on-external-mouse
     }
 
     mouse {
-        // off
-        // natural-scroll
-        // accel-speed 0.2
-        // accel-profile "flat"
-        // scroll-method "no-scroll"
     }
 
     trackpoint {
-        // off
-        // natural-scroll
-        // accel-speed 0.2
-        // accel-profile "flat"
-        // scroll-method "on-button-down"
-        // scroll-button 273
-        // scroll-button-lock
-        // middle-emulation
     }
-    // warp-mouse-to-focus
-    // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
-    // focus-follows-mouse max-scroll-amount="0%"
 }
 output "HDMI-A-1" {
     mode "3840x2160@60"
     scale 1.5
     transform "normal"
-    // position x=1280 y=0
-}
-overview {
-    zoom 0.45
 }
 
+
+//      __                         __
+//     / /   ____ ___  ______  __ / /_
+//    / /   / __ `/ / / / __ \/ / / __/
+//   / /___/ /_/ / /_/ / /_/ / /_/ /_
+//  /_____/\__,_/\__, /\____/\__/\__/
+//              /____/
 layout {
     // Set gaps around windows in logical pixels.
     gaps 5
-    center-focused-column "on-overflow"
-    always-center-single-column
+    // center-focused-column "on-overflow"
+    // always-center-single-column
 
     preset-column-widths {
         proportion 0.33333
@@ -65,40 +49,9 @@ layout {
     }
 
     focus-ring {
-        // Uncomment this line to disable the focus ring.
-        // off
-
-        // How many logical pixels the ring extends out from the windows.
         width 2
-
-        // Colors can be set in a variety of ways:
-        // - CSS named colors: "red"
-        // - RGB hex: "#rgb", "#rgba", "#rrggbb", "#rrggbbaa"
-        // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
-
-        // Color of the ring on the active monitor.
         active-color "#7fc8ff"
-
-        // Color of the ring on inactive monitors.
-        //
-        // The focus ring only draws around the active window, so the only place
-        // where you can see its inactive-color is on other monitors.
         inactive-color "#505050"
-
-        // You can also use gradients. They take precedence over solid colors.
-        // Gradients are rendered the same as CSS linear-gradient(angle, from, to).
-        // The angle is the same as in linear-gradient, and is optional,
-        // defaulting to 180 (top-to-bottom gradient).
-        // You can use any CSS linear-gradient tool on the web to set these up.
-        // Changing the color space is also supported, check the wiki for more info.
-        //
-        // active-gradient from="#80c8ff" to="#c7ff7f" angle=45
-
-        // You can also color the gradient relative to the entire view
-        // of the workspace, rather than relative to just the window itself.
-        // To do that, set relative-to="workspace-view".
-        //
-        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
 
     // You can also add a border. It's similar to the focus ring, but always visible.
@@ -159,52 +112,16 @@ layout {
         color "#0007"
     }
     background-color "transparent"
-
+}
+overview {
+    zoom 0.45
 }
 prefer-no-csd
-// screenshot-path "~/Pictures/wallpapers/wallpaper.jpg"
 hotkey-overlay {
     skip-at-startup
 }
-// screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 animations {
-    // Uncomment to turn off all animations.
-    // off
-
-    // Slow down all animations by this factor. Values below 1 speed them up instead.
     slowdown 0.5
-}
-
-window-rule {
-    // This regular expression is intentionally made as specific as possible,
-    // since this is the default config, and we want no false positives.
-    // You can get away with just app-id="wezterm" if you want.
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    default-column-width {}
-}
-
-// Open the Firefox picture-in-picture player as floating by default.
-window-rule {
-    // This app-id regular expression will work for both:
-    // - host Firefox (app-id is "firefox")
-    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
-    match title="Picture in picture"
-    open-floating true
-    default-floating-position x=100 y=100 relative-to="bottom-right"
-    tiled-state true
-}
-
-// Fullscreen
-window-rule {
-	match title="Steam,Zed"
-	default-column-width { proportion 1.0; }
-}
-// floating windows
-window-rule {
-	match title="Steam Settings|Friends List"
-	default-column-width { proportion 0.4; }
-	default-window-height { proportion 0.8; }
-	open-floating true
 }
 
 workspace "1"
@@ -216,28 +133,39 @@ workspace "6"
 workspace "7"
 
 
-// window-rule {
-//     match app-id=r#"steam"#
-// }
+//     _       ___           __                 ____        __
+//    | |     / (_)___  ____/ /___ _      __   / __ \__  __/ /__  _____
+//    | | /| / / / __ \/ __  / __ \ | /| / /  / /_/ / / / / / _ \/ ___/
+//    | |/ |/ / / / / / /_/ / /_/ / |/ |/ /  / _, _/ /_/ / /  __(__  )
+//    |__/|__/_/_/ /_/\__,_/\____/|__/|__/  /_/ |_|\__,_/_/\___/____/
+//
+ 
+// Open the Firefox picture-in-picture player as floating by default.
 window-rule {
-    match app-id="zen"
-    open-maximized true
+    match title="Picture in picture"
+    open-floating true
+    default-floating-position x=100 y=100 relative-to="bottom-right"
+    tiled-state true
 }
 
-// Example: block out two password managers from screen capture.
-// (This example rule is commented out with a "/-" in front.)
-/-window-rule {
-    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
-    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+// Fullscreen
+// window-rule {
+//     match title="Steam,Zed"
+//     default-column-width { proportion 1.0; }
+// }
 
-    block-out-from "screen-capture"
-
-    // Use this instead if you want them visible on third-party screenshot tools.
-    // block-out-from "screencast"
+// Floating windows
+window-rule {
+    match title="Steam Settings|Friends List"
+    default-column-width { proportion 0.4; }
+    default-window-height { proportion 0.8; }
+    open-floating true
 }
 
+// Default rule
 window-rule {
     opacity 1.0
+    open-maximized true
     geometry-corner-radius 6
     clip-to-geometry true
     // Do not draw color tint on top of focused window
@@ -245,15 +173,13 @@ window-rule {
 }
 
 
-// This line starts waybar, a commonly used bar for Wayland compositors.
-xwayland-satellite
-// spawn-at-startup "xwayland-satellite"
-spawn-at-startup "swaync"
-spawn-at-startup "waybar"
-spawn-at-startup "ghostty"
-spawn-at-startup "swww-daemon"
-spawn-at-startup "swww img -t none ~/Pictures/wallpapers/wallpaper"
-
+//      ____  _            __
+//     / __ )(_)___  ____/ /____
+//    / __  / / __ \/ __  / ___/
+//   / /_/ / / / / / /_/ (__  )
+//  /_____/_/_/ /_/\__,_/____/
+//
+ 
 binds {
     // "Mod" is a special modifier equal to Super when running on a TTY, and to Alt
     // when running as a winit window.
@@ -265,7 +191,7 @@ binds {
     Mod+W hotkey-overlay-title="toggle waybar" repeat=false { spawn-sh "pkill -SIGUSR1 waybar || waybar"; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+Return hotkey-overlay-title="Open a Terminal " { spawn "ghostty"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal " { spawn "wezterm"; }
     Mod+B hotkey-overlay-title="Open a Browser " { spawn "zen-beta"; }
     Mod+Space hotkey-overlay-title="Run an Application" { spawn-sh "vicinae vicinae://toggle"; }
 
@@ -487,18 +413,25 @@ binds {
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
 }
+
+//      __  __  _
+//     /  |/  /(_)________
+//    / /|_/ / / ___/ ___/
+//   / /  / / (__  ) /__
+//  /_/  /_/_/____/\___/
+//
 layer-rule {
     place-within-backdrop true
 }
 environment {
     NIXOS_OZONE_WL "1"
     DIRENV_LOG_FORMAT ""
-    // XDG_CURRENT_DESKTOP "niri"
-    // GTK_USE_PORTAL "1"
-    // MOZ_ENABLE_WAYLAND "1"
-    // QT_QPA_PLATFORM "wayland"
-    // ELECTRON_OZONE_PLATFORM_HINT "wayland"
-    // QT_QPA_PLATFORMTHEME "gtk3"
-    // QT_QPA_PLATFORMTHEME_QT6 "gtk3"
-    // TERMINAL "${terminal}"
 }
+
+// This line starts waybar, a commonly used bar for Wayland compositors.
+xwayland-satellite
+spawn-at-startup "swaync"
+spawn-at-startup "waybar"
+spawn-at-startup "wezterm"
+spawn-at-startup "swww-daemon"
+spawn-at-startup "swww img -t none ~/Pictures/wallpapers/wallpaper"

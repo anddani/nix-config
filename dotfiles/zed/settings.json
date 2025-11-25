@@ -23,14 +23,38 @@
   "base_keymap": "JetBrains",
   "ui_font_size": 16,
   "buffer_font_size": 15,
-  "ui_font_family": "Fira Code",
-  "buffer_font_family": "Fira Code",
+  "ui_font_family": "FiraCode Nerd Font",
+  "buffer_font_family": "FiraCode Nerd Font",
   "theme": {
     "mode": "system",
     "light": "Catppuccin Frappé",
     "dark": "One Dark"
   },
   "languages": {
+    "JavaScript": {
+      "language_servers": ["!eslint", "..."],
+      "formatter": { "language_server": { "name": "biome" } },
+      "code_actions_on_format": {
+        "source.fixAll.biome": true,
+        "source.organizeImports.biome": true
+      }
+    },
+    "TypeScript": {
+      "language_servers": ["!eslint", "..."],
+      "formatter": { "language_server": { "name": "biome" } },
+      "code_actions_on_format": {
+        "source.fixAll.biome": true,
+        "source.organizeImports.biome": true
+      }
+    },
+    "TSX": {
+      "language_servers": ["!eslint", "..."],
+      "formatter": { "language_server": { "name": "biome" } },
+      "code_actions_on_format": {
+        "source.fixAll.biome": true,
+        "source.organizeImports.biome": true
+      }
+    },
     "Elixir": {
       "language_servers": [
         "expert",

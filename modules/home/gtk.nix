@@ -9,12 +9,13 @@
     twemoji-color-font
     noto-fonts-color-emoji
     fantasque-sans-mono
+    ubuntu-sans
   ];
 
   gtk = {
     enable = true;
     font = {
-      name = "Fira Code";
+      name = "Ubuntu";
       size = 12;
     };
     theme = {

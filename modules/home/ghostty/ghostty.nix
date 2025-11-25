@@ -7,7 +7,7 @@
     settings = {
       ##### Font #####
       font-family = [
-        "Fira Code"
+        "FiraCode Nerd Font"
         # "DejaVu Sans"
       ];
       font-size = "18";

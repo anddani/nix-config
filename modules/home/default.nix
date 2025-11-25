@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./alacritty.nix
     ./aseprite/aseprite.nix           # pixel art editor
     ./audacious/audacious.nix         # music player
     ./browser.nix                     # firefox based browser

@@ -40,7 +40,10 @@
 
     winetricks
     wineWowPackages.waylandFull
+    wezterm
   ];
+
+  xdg.configFile."wezterm/wezterm.lua".source = ../../../dotfiles/wezterm/wezterm.lua;
 
   programs = {
     btop = {
