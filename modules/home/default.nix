@@ -17,7 +17,6 @@
     ./nemo.nix                        # file manager
     ./niri
     ./obsidian.nix
-    ./p10k/p10k.nix
     ./packages                        # other packages
     ./retroarch.nix
     ./rofi/rofi.nix                   # launcher
