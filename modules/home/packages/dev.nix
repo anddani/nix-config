@@ -3,6 +3,9 @@
   home.packages = with pkgs; [
     direnv
 
+    claude-code
+    tabiew
+
     ## Lsp
     nixd # nix
 
@@ -16,5 +19,6 @@
     ## JS
     nodejs
     yarn
+    bun
   ];
 }

@@ -28,6 +28,7 @@
   environment.systemPackages = with pkgs; [
     wget
     git
+    bluetui
   ];
 
   i18n.defaultLocale = "en_US.UTF-8";
