@@ -6,6 +6,10 @@
     claude-code
     tabiew
     opentofu
+    tofu-ls
+
+    terraform
+    terraform-ls
 
     ## Lsp
     nixd # nix
