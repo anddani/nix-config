@@ -5,6 +5,7 @@
 
     claude-code
     tabiew
+    opentofu
 
     ## Lsp
     nixd # nix
