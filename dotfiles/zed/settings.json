@@ -32,24 +32,45 @@
   },
   "languages": {
     "JavaScript": {
-      "language_servers": ["!eslint", "..."],
-      "formatter": { "language_server": { "name": "biome" } },
+      "language_servers": [
+        "!eslint",
+        "..."
+      ],
+      "formatter": {
+        "language_server": {
+          "name": "biome"
+        }
+      },
       "code_actions_on_format": {
         "source.fixAll.biome": true,
         "source.organizeImports.biome": true
       }
     },
     "TypeScript": {
-      "language_servers": ["!eslint", "..."],
-      "formatter": { "language_server": { "name": "biome" } },
+      "language_servers": [
+        "!eslint",
+        "..."
+      ],
+      "formatter": {
+        "language_server": {
+          "name": "biome"
+        }
+      },
       "code_actions_on_format": {
         "source.fixAll.biome": true,
         "source.organizeImports.biome": true
       }
     },
     "TSX": {
-      "language_servers": ["!eslint", "..."],
-      "formatter": { "language_server": { "name": "biome" } },
+      "language_servers": [
+        "!eslint",
+        "..."
+      ],
+      "formatter": {
+        "language_server": {
+          "name": "biome"
+        }
+      },
       "code_actions_on_format": {
         "source.fixAll.biome": true,
         "source.organizeImports.biome": true
@@ -58,7 +79,6 @@
     "Elixir": {
       "language_servers": [
         "expert",
-        "tailwindcss-language-server",
         "!elixir-ls",
         "!next-ls",
         "!lexical",
@@ -68,7 +88,6 @@
     "HEEX": {
       "language_servers": [
         "expert",
-        "tailwindcss-language-server",
         "!elixir-ls",
         "!next-ls",
         "!lexical",

@@ -7,6 +7,14 @@
     tabiew
     opentofu
     tofu-ls
+    chromium
+
+    (elixir-with-otp erlang_28).latest
+    erlang_28
+    elixir-ls
+
+    tailwindcss-language-server
+    vscode-langservers-extracted
 
     terraform
     terraform-ls

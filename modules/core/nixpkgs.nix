@@ -1,8 +1,9 @@
-{ pkgs, inputs, ... }:
+{ inputs, ... }:
 {
   nixpkgs = {
-    overlays = [
-      inputs.nur.overlays.default
+    overlays = with inputs; [
+      nur.overlays.default
+      elixir-overlay.overlays.default
     ];
   };
 }
