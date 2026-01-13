@@ -1,10 +1,15 @@
 { pkgs, ... }:
 {
-  environment.systemPackages = with pkgs; [ gamescope ];
+  environment.systemPackages = with pkgs; [
+    gamescope
+    protonup-qt
+  ];
   programs = {
     steam = {
       enable = true;
-
+      protontricks = {
+        enable = true;
+      };
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = false;
 

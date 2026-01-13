@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    perl
     direnv
 
     claude-code
@@ -12,6 +13,7 @@
     (elixir-with-otp erlang_28).latest
     erlang_28
     elixir-ls
+    inotify-tools
 
     tailwindcss-language-server
     vscode-langservers-extracted

@@ -8,6 +8,8 @@ fi
 
 source <(fzf --zsh)
 
+bindkey -v # vi bindings
+
 alias ..='cd ../'
 alias ...='cd ../../'
 alias ....='cd ../../../'

@@ -30,11 +30,12 @@
     # XDG_CURRENT_DESKTOP = "Hyprland";
     XDG_SESSION_TYPE = "wayland";
     # XDG_SESSION_DESKTOP = "Hyprland";
-    SDL_VIDEODRIVER = "wayland";
+    # SDL_VIDEODRIVER = "wayland";
     CLUTTER_BACKEND = "wayland";
     GTK_THEME = "Colloid-Green-Dark-Gruvbox";
     GRIMBLAST_HIDE_CURSOR = 0;
     DISPLAY = ":0";
+    PROTON_ENABLE_WAYLAND = 1;
   };
 
   xdg.configFile."niri/config.kdl".source = ./config.kdl;
