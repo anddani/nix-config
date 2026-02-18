@@ -11,7 +11,7 @@
 
   dconf.settings = {
     "org/gnome/TextEditor" = {
-      custom-font = "Fira Code 15";
+      custom-font = "FiraCode Nerd Font 15";
       highlight-current-line = true;
       indent-style = "space";
       restore-session = false;

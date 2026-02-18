@@ -9,6 +9,8 @@
     opentofu
     tofu-ls
     chromium
+    gitu
+    lmstudio
 
     (elixir-with-otp erlang_28).latest
     erlang_28
@@ -25,7 +27,7 @@
     nixd # nix
 
     ## formating
-    nixfmt-rfc-style
+    nixfmt
 
     ## Python
     python3

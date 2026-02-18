@@ -30,6 +30,7 @@
     playerctl                         # controller for media players
     udiskie                           # Automounter for removable media
     unzip
+    p7zip
     wget
     wl-clipboard                      # clipboard utils for wayland (wl-copy, wl-paste)
     xdg-utils

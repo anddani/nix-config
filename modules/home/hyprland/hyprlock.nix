@@ -89,7 +89,7 @@
           dots_spacing = 0.4;
 
           font_color = "rgba(235, 219, 178, 0.9)";
-          font_family = "Fira Code Bold";
+          font_family = "FiraCode Bold";
 
           outer_color = "rgba(168, 153, 132, 0.95)";
           inner_color = "rgba(102, 92, 84, 0.33)";

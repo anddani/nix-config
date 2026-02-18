@@ -2,7 +2,7 @@
 
 configuration {
     show-icons: false;
-    font: "Fira Code Bold 26";
+    font: "FiraCode Bold 26";
 }
 
 window {

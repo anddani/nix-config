@@ -11,6 +11,7 @@
     crispy-doom
 
     ## Emulation
+    pcsx2
     # sameboy
     # snes9x
     # cemu

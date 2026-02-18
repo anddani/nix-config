@@ -3,6 +3,7 @@
   imports = [
     ./bootloader.nix
     ./flatpak.nix
+    ./font.nix
     ./hardware.nix
     ./network.nix
     ./nixpkgs.nix
