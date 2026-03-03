@@ -2,7 +2,8 @@
 {
   services.mpd = {
     enable = true;
-    musicDirectory = "/home/anddani/Music";
+    settings.music_directory = "/home/anddani/Music";
+
   };
   services.pulseaudio.enable = false;
   services.pipewire = {

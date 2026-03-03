@@ -1,7 +1,7 @@
 { pkgs, host, ... }:
 {
   networking = {
-    hostName = "bee";
+    hostName = "desktop";
     networkmanager.enable = true;
   };
 

@@ -27,10 +27,7 @@
     WLR_BACKEND = "vulkan";
     WLR_RENDERER = "vulkan";
     WLR_NO_HARDWARE_CURSORS = 1;
-    # XDG_CURRENT_DESKTOP = "Hyprland";
     XDG_SESSION_TYPE = "wayland";
-    # XDG_SESSION_DESKTOP = "Hyprland";
-    # SDL_VIDEODRIVER = "wayland";
     CLUTTER_BACKEND = "wayland";
     GTK_THEME = "Colloid-Green-Dark-Gruvbox";
     GRIMBLAST_HIDE_CURSOR = 0;
@@ -53,10 +50,6 @@
       common.default = [
         "gtk"
         "gnome"
-      ];
-      hyprland.default = [
-        "gtk"
-        "hyprland"
       ];
       niri.default = [
         "gtk"

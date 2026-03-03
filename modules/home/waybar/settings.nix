@@ -43,24 +43,6 @@
           size = 22;
           tooltip = false;
         };
-        "hyprland/workspaces" = {
-          disable-scroll = false;
-          all-outputs = false;
-          active-only = false;
-          format = "<span><b>{icon}</b></span>";
-          format-icons = {
-            "1" = "1";
-            "2" = "2";
-            "3" = "3";
-            "4" = "4";
-            "5" = "5";
-            "6" = "6";
-            "7" = "7";
-            "8" = "8";
-            "9" = "9";
-            urgent = " ";
-          };
-        };
         "niri/workspaces" = {
           all-outputs = false;
           on-click = "activate";
@@ -90,13 +72,6 @@
           active-first = true;
           on-click = "activate";
         };
-        "hyprland/window" = {
-          max-length = 50;
-          format = "<i>{title}</i>";
-          separate-outputs = true;
-          icon = true;
-          icon-size = 13;
-        };
         "niri/window" = {
           max-length = 50;
           format = "{app_id}";
@@ -108,7 +83,6 @@
             "" = "<span foreground='#89b4fa'> Niri</span>";
             " " = "<span foreground='#89b4fa'> Niri</span>";
             # terminals
-            "com.mitchellh.ghostty" = "<span foreground='#89b4fa'>󰊠 Ghostty</span>";
             "org.wezfurlong.wezterm" = "<span foreground='#89b4fa'> Wezterm</span>";
             "kitty" = "<span foreground='#89b4fa'>󰄛 Kitty</span>";
             # code

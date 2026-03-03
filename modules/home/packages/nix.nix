@@ -12,6 +12,12 @@
     };
 
     nix-index-database.comma.enable = true;
+
+    nh = {
+      enable = true;
+      clean.enable = true;
+      clean.extraArgs = "--keep 5";
+    };
   };
 
   home.packages = with pkgs; [

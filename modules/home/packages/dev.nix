@@ -9,8 +9,9 @@
     opentofu
     tofu-ls
     chromium
-    gitu
     lmstudio
+    vhs
+    magi
 
     (elixir-with-otp erlang_28).latest
     erlang_28
