@@ -18,7 +18,7 @@ config.cursor_blink_ease_out = 'Constant'
 config.enable_tab_bar = true
 config.tab_bar_at_bottom = true
 config.use_fancy_tab_bar = false
-config.window_decorations = "NONE"
+config.window_decorations = "RESIZE"
     
 config.window_background_opacity = 0.95
 

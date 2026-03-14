@@ -44,7 +44,7 @@
     wezterm
   ];
 
-  xdg.configFile."wezterm/wezterm.lua".source = ../../../dotfiles/wezterm/wezterm.lua;
+  xdg.configFile."wezterm/wezterm.lua".source = ../../../dotfiles/.config/wezterm/wezterm.lua;
 
   programs = {
     btop = {

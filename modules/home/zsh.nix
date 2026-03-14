@@ -24,5 +24,5 @@
   };
 
   home.file.".p10k.zsh".source = ../../dotfiles/.p10k.zsh;
-  xdg.configFile."starship/starship.toml".source = ../../dotfiles/starship/starship.toml;
+  xdg.configFile."starship/starship.toml".source = ../../dotfiles/.config/starship/starship.toml;
 }

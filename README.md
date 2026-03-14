@@ -34,6 +34,28 @@ sudo nixos-rebuild switch --flake .#${HOST}
     -   [homes](modules/home/) 🏠 my [Home-Manager](https://github.com/nix-community/home-manager) config
 -   [wallpapers](wallpapers/) 🌄 wallpapers collection
 
+## MacOS
+
+For MacOS I'd like to use Stow due to constant issues with Nix sadly.
+
+```sh
+brew tap railwaycat/emacsmacport
+
+brew install \
+  --cask emacs-mac \
+  --cask wezterm \
+  git stow asdf yazi zellij helix \
+  direnv ripgrep zsh fzf zplug starship \
+  yarn typescript-language-server zoxide tailwindcss-language-server \
+  font-fira-code-nerd-font
+
+# DOOM Emacs
+git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
+~/.config/emacs/bin/doom install
+
+stow dotfiles
+```
+
 # 👥 Credits
 
 Based on [anddani/nix-home](https://github.com/anddani/nix-home)

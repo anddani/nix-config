@@ -6,7 +6,13 @@ if type direnv &>/dev/null; then
 	eval "$(direnv hook zsh)"
 fi
 
-source <(fzf --zsh)
+if type zoxide &>/dev/null; then
+	eval "$(zoxide init zsh)"
+fi
+
+if type fzf &>/dev/null; then
+	source <(fzf --zsh)
+fi
 
 bindkey -v # vi bindings
 
