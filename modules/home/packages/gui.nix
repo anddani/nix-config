@@ -11,6 +11,8 @@
     gnome-disk-utility
     webcamoid
 
+    kid3
+
     slack
   ];
 }

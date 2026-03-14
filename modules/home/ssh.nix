@@ -29,6 +29,12 @@
         identityFile = "~/.ssh/id_github";
         identitiesOnly = true;
       };
+
+      aur = {
+        host = "aur.archlinux.org";
+        user = "aur";
+        identityFile = "~/.ssh/id_github";
+      };
     };
   };
 

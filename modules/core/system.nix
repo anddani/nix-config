@@ -25,6 +25,7 @@
     wget
     git
     bluetui
+    distrobox
   ];
   environment.variables = {
     EDITOR = "hx";

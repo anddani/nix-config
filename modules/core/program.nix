@@ -13,7 +13,8 @@
     nix-ld.enable = true;
     nix-ld.libraries = [ ];
   };
-  virtualisation.docker = {
+  virtualisation.podman = {
     enable = true;
+    dockerCompat = true;
   };
 }
