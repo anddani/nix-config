@@ -46,3 +46,5 @@ display-inlay-hints = true
     ':open %sh{cat /tmp/yazi-file}',
     ':redraw',
 ]
+"m" = ":sh zellij run -c -f -x 5%% -y 5%% --width 90%% --height 90%% -- magi"
+
