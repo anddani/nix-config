@@ -12,6 +12,7 @@
     lmstudio
     vhs
     magi
+    zellij
 
     (elixir-with-otp erlang_28).latest
     erlang_28
