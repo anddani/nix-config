@@ -4,6 +4,8 @@
     perl
     direnv
 
+    android-studio
+
     claude-code
     tabiew
     opentofu

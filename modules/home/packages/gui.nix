@@ -5,6 +5,7 @@
     audacity
     pavucontrol
     tauon
+    picard
 
     ## Utility
     dconf-editor
