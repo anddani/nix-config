@@ -7,6 +7,8 @@
     man-pages                         # extra man pages
     ncdu                              # disk space
     ripgrep                           # grep replacement
+    mpd
+    beets
 
     ## Tools / useful cli
     swappy                            # snapshot editing tool
