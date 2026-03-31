@@ -40,14 +40,15 @@ For MacOS I'd like to use Stow due to constant issues with Nix sadly.
 
 ```sh
 brew tap railwaycat/emacsmacport
+brew tap anddani/homebrew-magi
 
 brew install \
   --cask emacs-mac \
   --cask wezterm \
-  git stow asdf yazi zellij helix \
+  git magi stow asdf yazi zellij helix \
   direnv ripgrep zsh fzf zplug starship \
   yarn typescript-language-server zoxide tailwindcss-language-server \
-  font-fira-code-nerd-font
+  font-fira-code-nerd-font rmpc mpd
 
 # DOOM Emacs
 git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
