@@ -1,9 +1,12 @@
 { pkgs, username, ... }:
 {
 
-  systemd.services.mpd.environment = {
-    # https://gitlab.freedesktop.org/pipewire/pipewire/-/issues/609
-    XDG_RUNTIME_DIR = "/run/user/${username}"; # User-id must match above user. MPD will look inside this directory for the PipeWire socket.
+  systemd.services.mpd = {
+    environment = {
+      # https://gitlab.freedesktop.org/pipewire/pipewire/-/issues/609
+      XDG_RUNTIME_DIR = "/run/user/${username}"; # User-id must match above user. MPD will look inside this directory for the PipeWire socket.
+    };
+    serviceConfig.SupplementaryGroups = [ "pipewire" ];
   };
   services.mpd = {
     enable = true;
@@ -22,6 +25,7 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    systemWide = true;
     # lowLatency.enable = true;
   };
   hardware.alsa.enablePersistence = true;

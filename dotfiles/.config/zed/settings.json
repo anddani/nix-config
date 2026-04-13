@@ -78,7 +78,8 @@
     },
     "Elixir": {
       "language_servers": [
-        "expert",
+        "dexter",
+        "!expert",
         "!elixir-ls",
         "!next-ls",
         "!lexical",
@@ -87,7 +88,8 @@
     },
     "HEEX": {
       "language_servers": [
-        "expert",
+        "dexter",
+        "!expert",
         "!elixir-ls",
         "!next-ls",
         "!lexical",

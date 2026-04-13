@@ -28,6 +28,11 @@
 
     elixir-overlay.url = "github:zoedsoupe/elixir-overlay";
     magi.url = "github:anddani/magi";
+
+    dexter-src = {
+      url = "github:remoteoss/dexter/main";
+      flake = false;
+    };
   };
 
   outputs =
@@ -48,6 +53,7 @@
           modules = [ ./hosts/desktop ];
           specialArgs = {
             host = "desktop";
+            dexter = pkgs.callPackage ./pkgs/dexter.nix { src = inputs.dexter-src; };
             inherit self inputs username;
           };
         };

@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   programs = {
     dconf.enable = true;
@@ -17,4 +17,5 @@
     enable = true;
     dockerCompat = true;
   };
+  environment.systemPackages = [ pkgs.podman-compose ];
 }

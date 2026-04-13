@@ -8,7 +8,7 @@
     ncdu                              # disk space
     ripgrep                           # grep replacement
     mpd
-    beets
+    mpc
 
     ## Tools / useful cli
     swappy                            # snapshot editing tool

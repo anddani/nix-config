@@ -1,3 +1,11 @@
+[language-server.expert]
+command = "expert"
+args = ["--stdio"]
+
+[language-server.dexter]
+command = "dexter"
+args = ["lsp"]
+
 [language-server.tailwindcss-ls]
 command = "tailwindcss-language-server"
 
@@ -20,14 +28,18 @@ file-types = ["tsx", "ts"]
 auto-format = true
 
 [[language]]
+# name = "elixir"
+# formatter = { command = "mix", args = ["format", "--stdin-filename", "%{buffer_name}", "-"] }
+# roots = ["mix.exs"]
+# auto-format = true
+# diagnostic-severity = "hint"
+# comment-token = "#"
+# indent = {tab-width = 2, unit = " "}
+# language-servers = ["elixir-ls", "tailwindcss-ls-ex"]
 name = "elixir"
-formatter = { command = "mix", args = ["format", "--stdin-filename", "%{buffer_name}", "-"] }
-roots = ["mix.exs"]
+language-servers = ["dexter", "tailwindcss-ls-ex"]
 auto-format = true
-diagnostic-severity = "hint"
-comment-token = "#"
-indent = {tab-width = 2, unit = " "}
-language-servers = ["elixir-ls", "tailwindcss-ls-ex"]
+formatter = { command = "mix format" }
 
 [[language]]
 name = "heex"

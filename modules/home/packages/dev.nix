@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, dexter, ... }:
 {
   home.packages = with pkgs; [
     perl
@@ -16,8 +16,11 @@
     magi
     zellij
 
+    dexter
+
     (elixir-with-otp erlang_28).latest
     erlang_28
+    beam28Packages.expert
     elixir-ls
     inotify-tools
 
