@@ -5,12 +5,43 @@
       enable = true;
       defaultFonts = {
         emoji = [ "Noto Color Emoji" ];
-        monospace = [ "JetBrainsMono" ];
+        monospace = [ "JetBrainsMono Nerd Font" ];
         serif = [ "Noto Serif" ];
         sansSerif = [ "Inter" ];
       };
+      localConf = ''
+        <?xml version="1.0"?>
+        <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+        <fontconfig>
+          <alias>
+            <family>ui-monospace</family>
+            <default><family>monospace</family></default>
+          </alias>
+
+          <alias binding="same">
+            <family>Liberation Mono</family>
+            <prefer><family>JetBrainsMono Nerd Font</family></prefer>
+          </alias>
+
+          <alias>
+            <family>system-ui</family>
+            <prefer><family>Inter</family></prefer>
+          </alias>
+
+          <alias>
+            <family>-apple-system</family>
+            <prefer><family>Inter</family></prefer>
+          </alias>
+
+          <alias>
+            <family>BlinkMacSystemFont</family>
+            <prefer><family>Inter</family></prefer>
+          </alias>
+        </fontconfig>
+      '';
     };
     packages = with pkgs; [
+      inter
       roboto
       corefonts
       noto-fonts
@@ -19,7 +50,6 @@
       material-icons
       dejavu_fonts
       open-sans
-      liberation_ttf
 
       nerd-fonts.jetbrains-mono
       nerd-fonts.fira-code

@@ -22,6 +22,7 @@
     mpv
 
     ## Utilities
+    zip
     ffmpeg
     file                              # Show file information
     jq                                # JSON processor

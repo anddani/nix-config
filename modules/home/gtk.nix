@@ -6,6 +6,12 @@
       name = "Ubuntu";
       size = 12;
     };
+    gtk3.extraConfig = {
+      gtk-monospace-font-name = "JetBrainsMono Nerd Font Mono 11";
+    };
+    gtk4.extraConfig = {
+      gtk-monospace-font-name = "JetBrainsMono Nerd Font Mono 11";
+    };
     theme = {
       name = "Colloid-Green-Dark-Gruvbox";
       package = pkgs.colloid-gtk-theme.override {
