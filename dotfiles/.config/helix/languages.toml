@@ -39,7 +39,6 @@ auto-format = true
 name = "elixir"
 language-servers = ["dexter", "tailwindcss-ls-ex"]
 auto-format = true
-formatter = { command = "mix format" }
 
 [[language]]
 name = "heex"
