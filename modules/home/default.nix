@@ -17,6 +17,7 @@
     ./nemo.nix # file manager
     ./niri
     ./obsidian.nix
+    ./zellij.nix
     ./packages # other packages
     ./retroarch.nix
     ./rmpc.nix
