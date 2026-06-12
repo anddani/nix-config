@@ -48,7 +48,7 @@ brew install \
   git magi stow asdf yazi zellij helix \
   direnv ripgrep zsh fzf zplug starship \
   yarn typescript-language-server zoxide tailwindcss-language-server \
-  font-fira-code-nerd-font rmpc mpd
+  font-fira-code-nerd-font rmpc mpd sqlite
 
 # DOOM Emacs
 git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
