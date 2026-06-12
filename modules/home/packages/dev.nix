@@ -14,7 +14,6 @@
     lmstudio
     vhs
     magi
-    zellij
 
     dexter
 
