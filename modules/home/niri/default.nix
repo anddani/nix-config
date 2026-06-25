@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
-    ./noctaliashell.nix
+    ./noctalia.nix
   ];
   home.packages = with pkgs; [
     xwayland-satellite

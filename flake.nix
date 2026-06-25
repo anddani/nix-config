@@ -28,6 +28,7 @@
 
     elixir-overlay.url = "github:zoedsoupe/elixir-overlay";
     magi.url = "github:anddani/magi";
+    catppuccin.url = "github:catppuccin/nix";
 
     dexter-src = {
       url = "github:remoteoss/dexter/main";

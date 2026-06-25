@@ -8,20 +8,9 @@
   # configure options
   programs.noctalia = {
     enable = true;
-
     settings = {
-      theme = {
-        mode = "dark";
-        source = "builtin";
-        builtin = "Kanagawa";
-      };
-
-      wallpaper = {
-        enabled = true;
-        default.path = "~/Pictures/wallpapers/wallpaper";
-      };
-
-      # --- OLD ---
+      # configure noctalia here; defaults will
+      # be deep merged with these attributes.
       bar = {
         position = "top";
         showCapsule = false;

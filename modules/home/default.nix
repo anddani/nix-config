@@ -1,35 +1,35 @@
 { ... }:
 {
+  catppuccin.enable = true;
+  catppuccin.autoEnable = false;
+
   imports = [
     ./alacritty.nix
-    ./aseprite/aseprite.nix # pixel art editor
-    ./audacious/audacious.nix # music player
-    ./browser.nix # firefox based browser
-    ./fastfetch/fastfetch.nix # fetch tool
-    ./fzf.nix # fuzzy finder
-    ./gaming.nix # packages related to gaming
-    # ./ghostty/ghostty.nix # terminal
-    ./git.nix # version control
-    ./gnome.nix # gnome apps
-    ./gtk.nix # gtk theme
+    ./aseprite/aseprite.nix
+    ./audacious/audacious.nix
+    ./browser.nix
+    ./fastfetch/fastfetch.nix
+    ./foot.nix
+    ./gaming.nix
+    ./git.nix
+    ./gnome.nix
+    ./gtk.nix
     ./helix
-    # ./hyprland # window manager
-    ./nemo.nix # file manager
+    ./nemo.nix
     ./niri
     ./obsidian.nix
-    ./zellij.nix
-    ./packages # other packages
+    ./packages
     ./retroarch.nix
     ./rmpc.nix
-    ./rofi/rofi.nix # launcher
-    ./scripts/scripts.nix # personal scripts
-    ./ssh.nix # ssh config
-    ./swaylock.nix # lock screen
-    ./swayosd.nix # brightness / volume wiget
-    ./swaync/swaync.nix # notification deamon
-    ./vicinae/vicinae.nix # launcher
-    ./waybar # status bar
+    ./rofi/rofi.nix
+    ./scripts/scripts.nix
+    ./shell.nix
+    ./ssh.nix
+    ./swaylock.nix
+    ./swaync/swaync.nix
+    ./swayosd.nix
+    ./vicinae/vicinae.nix
     ./zed.nix
-    ./zsh.nix # shell
+    ./zellij.nix
   ];
 }

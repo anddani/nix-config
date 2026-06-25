@@ -13,7 +13,10 @@
     useGlobalPkgs = true;
     extraSpecialArgs = { inherit inputs username host dexter; };
     users.${username} = {
-      imports = [ ./../home ];
+      imports = [
+        ./../home
+        inputs.catppuccin.homeModules.catppuccin
+      ];
       home.username = "${username}";
       home.homeDirectory = "/home/${username}";
       home.stateVersion = "24.05";
@@ -29,7 +32,7 @@
       "networkmanager"
       "wheel"
     ];
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
   };
   nix.settings.allowed-users = [ "${username}" ];
 }

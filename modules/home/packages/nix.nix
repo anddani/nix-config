@@ -8,7 +8,7 @@
     nix-index = {
       enable = true;
       symlinkToCacheHome = true;
-      enableZshIntegration = false;
+      enableFishIntegration = false;
     };
 
     nix-index-database.comma.enable = true;

@@ -25,9 +25,9 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    systemWide = true;
+    wireplumber.enable = true;
     # lowLatency.enable = true;
   };
   hardware.alsa.enablePersistence = true;
-  environment.systemPackages = with pkgs; [ pulseaudioFull ];
+  environment.systemPackages = with pkgs; [ pulseaudioFull librepods ];
 }

@@ -50,6 +50,7 @@
       material-icons
       dejavu_fonts
       open-sans
+      jetbrains-mono
 
       nerd-fonts.jetbrains-mono
       nerd-fonts.fira-code
