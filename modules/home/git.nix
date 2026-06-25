@@ -1,4 +1,4 @@
-{ pkgs, username, ... }:
+{ config, ... }:
 {
   programs.git = {
     enable = true;
@@ -15,7 +15,7 @@
       pull.ff = "only";
       color.ui = true;
 
-      core.excludesFile = "/home/${username}/.config/git/.gitignore";
+      core.excludesFile = "${config.home.homeDirectory}/.config/git/.gitignore";
     };
   };
 

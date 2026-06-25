@@ -28,34 +28,45 @@ sudo nixos-rebuild switch --flake .#${HOST}
 
 -   [flake.nix](flake.nix) base of the configuration
 -   [hosts](hosts) 🌳 per-host configurations that contain machine specific configurations
-    - [desktop](hosts/desktop/) 🖥️ Desktop specific configuration
--   [modules](modules) 🍱 modularized NixOS configurations
+    - [desktop](hosts/desktop/) 🖥️ Desktop specific configuration (NixOS)
+    - [macbook](hosts/macbook/) 💻 MacBook specific configuration (nix-darwin)
+-   [modules](modules) 🍱 modularized configurations
     -   [core](modules/core/) ⚙️ Core NixOS configuration
-    -   [homes](modules/home/) 🏠 my [Home-Manager](https://github.com/nix-community/home-manager) config
+    -   [darwin](modules/darwin/) 🍎 Core nix-darwin configuration
+    -   [home](modules/home/) 🏠 my [Home-Manager](https://github.com/nix-community/home-manager) config (`darwin/` holds the macOS subset)
 -   [wallpapers](wallpapers/) 🌄 wallpapers collection
 
-## MacOS
+## macOS (nix-darwin + home-manager)
 
-For MacOS I'd like to use Stow due to constant issues with Nix sadly.
+The Mac is managed declaratively with [nix-darwin](https://github.com/nix-darwin/nix-darwin)
+and [home-manager](https://github.com/nix-community/home-manager). GUI apps are installed as
+Homebrew casks driven by [nix-homebrew](https://github.com/zhaofengli/nix-homebrew).
 
 ```sh
-brew tap railwaycat/emacsmacport
-brew tap anddani/homebrew-magi
+# 1. Install Nix (Determinate installer — flakes enabled by default).
+#    Open a NEW terminal afterwards so the daemon is on PATH.
+curl -fsSL https://install.determinate.systems/nix | sh -s -- install
 
-brew install \
-  --cask emacs-mac \
-  --cask wezterm \
-  git magi stow asdf yazi zellij helix \
-  direnv ripgrep zsh fzf zplug starship \
-  yarn typescript-language-server zoxide tailwindcss-language-server \
-  font-fira-code-nerd-font rmpc mpd sqlite
+# 2. Bootstrap nix-darwin (darwin-rebuild doesn't exist yet, so run it via nix).
+sudo nix run github:nix-darwin/nix-darwin/master#darwin-rebuild -- \
+    switch --flake ~/git/nix-config#Andres-MacBook-Pro
+#    If it complains that /etc/zshrc (or /etc/bashrc) already exists:
+#      sudo mv /etc/zshrc /etc/zshrc.before-nix-darwin
+#    then re-run the command. The first run also installs Homebrew + casks.
 
-# DOOM Emacs
-git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
-~/.config/emacs/bin/doom install
+# 3. Apply changes on every subsequent edit.
+sudo darwin-rebuild switch --flake ~/git/nix-config#Andres-MacBook-Pro
 
-stow dotfiles
+# 4. Set fish as the login shell (one-time). The rebuild registers fish in
+#    /etc/shells via `environment.shells`, so chsh will accept it.
+chsh -s /run/current-system/sw/bin/fish
+#    Open a new terminal afterwards. fish is configured in modules/home/shell.nix.
 ```
+
+> Note: the Determinate installer ships *Determinate Nix*, which manages the Nix daemon
+> itself, so the darwin config sets `nix.enable = false` (see
+> [modules/darwin/nix.nix](modules/darwin/nix.nix)). Add GUI apps by editing the `casks`
+> list in [modules/darwin/homebrew.nix](modules/darwin/homebrew.nix).
 
 # 👥 Credits
 

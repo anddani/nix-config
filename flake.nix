@@ -10,6 +10,23 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # macOS (nix-darwin) support
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Declarative Homebrew installation for nix-darwin
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
+
     nix-gaming.url = "github:fufexan/nix-gaming";
     nix-flatpak.url = "github:gmodena/nix-flatpak";
 
@@ -39,23 +56,42 @@
   outputs =
     { nixpkgs, self, ... }@inputs:
     let
-      username = "anddani";
-      system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
+      # NixOS desktop (Linux)
+      linuxUsername = "anddani";
+      linuxSystem = "x86_64-linux";
+      linuxPkgs = import nixpkgs {
+        system = linuxSystem;
         config.allowUnfree = true;
       };
-      lib = nixpkgs.lib;
+
+      # macOS laptop (Apple Silicon)
+      darwinUsername = "andredanielsson";
+      darwinSystem = "aarch64-darwin";
+      darwinHostname = "Andres-MacBook-Pro";
     in
     {
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem {
-          inherit system;
+          system = linuxSystem;
           modules = [ ./hosts/desktop ];
           specialArgs = {
             host = "desktop";
-            dexter = pkgs.callPackage ./pkgs/dexter.nix { src = inputs.dexter-src; };
-            inherit self inputs username;
+            dexter = linuxPkgs.callPackage ./pkgs/dexter.nix { src = inputs.dexter-src; };
+            inherit self inputs;
+            username = linuxUsername;
+          };
+        };
+      };
+
+      darwinConfigurations = {
+        ${darwinHostname} = inputs.nix-darwin.lib.darwinSystem {
+          system = darwinSystem;
+          modules = [ ./hosts/macbook ];
+          specialArgs = {
+            host = "macbook";
+            hostname = darwinHostname;
+            inherit self inputs;
+            username = darwinUsername;
           };
         };
       };
