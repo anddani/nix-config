@@ -25,11 +25,12 @@
       "homebrew/homebrew-cask"
     ];
 
-    brews = [ ];
+    brews = [];
     casks = [
       "wezterm"
       "obsidian"
       "rectangle"
+      "claude-code"
     ];
 
     onActivation = {
