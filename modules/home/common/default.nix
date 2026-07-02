@@ -7,7 +7,10 @@
   imports = [
     ./git.nix
     ./helix
+    ./packages.nix
     ./shell.nix
+    ./ssh.nix
+    ./zed.nix
     ./zellij.nix
   ];
 }

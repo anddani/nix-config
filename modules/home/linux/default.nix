@@ -23,6 +23,5 @@
     ./swaync/swaync.nix
     ./swayosd.nix
     ./vicinae/vicinae.nix
-    ./zed.nix
   ];
 }

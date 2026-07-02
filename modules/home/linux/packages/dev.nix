@@ -2,7 +2,6 @@
 {
   home.packages = with pkgs; [
     perl
-    direnv
 
     android-studio
 
@@ -27,7 +26,6 @@
     elixir-ls
     inotify-tools
 
-    tailwindcss-language-server
     vscode-langservers-extracted
 
     terraform
