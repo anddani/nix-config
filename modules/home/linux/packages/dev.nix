@@ -1,4 +1,4 @@
-{ pkgs, dexter, ... }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     perl

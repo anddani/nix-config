@@ -26,7 +26,14 @@
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
-    extraSpecialArgs = { inherit inputs username host; };
+    extraSpecialArgs = {
+      inherit
+        inputs
+        username
+        host
+        hostname
+        ;
+    };
     users.${username} = {
       imports = [
         ../../modules/home/common

@@ -2,7 +2,7 @@
   inputs,
   username,
   host,
-  dexter,
+  hostname,
   ...
 }:
 {
@@ -15,7 +15,14 @@
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
-    extraSpecialArgs = { inherit inputs username host dexter; };
+    extraSpecialArgs = {
+      inherit
+        inputs
+        username
+        host
+        hostname
+        ;
+    };
     users.${username} = {
       imports = [
         ../../modules/home/common

@@ -55,43 +55,29 @@
 
   outputs =
     { nixpkgs, self, ... }@inputs:
-    let
-      # NixOS desktop (Linux)
-      linuxUsername = "anddani";
-      linuxSystem = "x86_64-linux";
-      linuxPkgs = import nixpkgs {
-        system = linuxSystem;
-        config.allowUnfree = true;
-      };
-
-      # macOS laptop (Apple Silicon)
-      darwinUsername = "andredanielsson";
-      darwinSystem = "aarch64-darwin";
-      darwinHostname = "Andres-MacBook-Pro";
-    in
     {
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem {
-          system = linuxSystem;
+          system = "x86_64-linux";
           modules = [ ./hosts/desktop ];
           specialArgs = {
-            host = "desktop";
-            dexter = linuxPkgs.callPackage ./pkgs/dexter.nix { src = inputs.dexter-src; };
             inherit self inputs;
-            username = linuxUsername;
+            host = "desktop";
+            hostname = "desktop";
+            username = "anddani";
           };
         };
       };
 
       darwinConfigurations = {
-        ${darwinHostname} = inputs.nix-darwin.lib.darwinSystem {
-          system = darwinSystem;
+        mac = inputs.nix-darwin.lib.darwinSystem {
+          system = "aarch64-darwin";
           modules = [ ./hosts/macbook ];
           specialArgs = {
-            host = "macbook";
-            hostname = darwinHostname;
             inherit self inputs;
-            username = darwinUsername;
+            host = "macbook";
+            hostname = "Andres-MacBook-Pro";
+            username = "andredanielsson";
           };
         };
       };

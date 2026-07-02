@@ -7,6 +7,9 @@
       (_final: prev: {
         magi = magi.packages.${prev.system}.default;
       })
+      (final: _prev: {
+        dexter = final.callPackage ../../pkgs/dexter.nix { src = inputs.dexter-src; };
+      })
     ];
   };
 }
