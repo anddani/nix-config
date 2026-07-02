@@ -31,9 +31,12 @@ sudo nixos-rebuild switch --flake .#${HOST}
     - [desktop](hosts/desktop/) 🖥️ Desktop specific configuration (NixOS)
     - [macbook](hosts/macbook/) 💻 MacBook specific configuration (nix-darwin)
 -   [modules](modules) 🍱 modularized configurations
-    -   [core](modules/core/) ⚙️ Core NixOS configuration
-    -   [darwin](modules/darwin/) 🍎 Core nix-darwin configuration
-    -   [home](modules/home/) 🏠 my [Home-Manager](https://github.com/nix-community/home-manager) config (`darwin/` holds the macOS subset)
+    -   [nixos](modules/nixos/) ⚙️ NixOS system configuration
+    -   [darwin](modules/darwin/) 🍎 nix-darwin system configuration
+    -   [home](modules/home/) 🏠 my [Home-Manager](https://github.com/nix-community/home-manager) config
+        -   [common](modules/home/common/) shared across all machines (shell, git, editors, terminal tools)
+        -   [linux](modules/home/linux/) Linux-only (niri, waybar-era Wayland tooling, GUI apps)
+        -   [darwin](modules/home/darwin/) macOS-only extras
 -   [wallpapers](wallpapers/) 🌄 wallpapers collection
 
 ## macOS (nix-darwin + home-manager)
@@ -60,7 +63,7 @@ sudo darwin-rebuild switch --flake ~/git/nix-config#Andres-MacBook-Pro
 # 4. Set fish as the login shell (one-time). The rebuild registers fish in
 #    /etc/shells via `environment.shells`, so chsh will accept it.
 chsh -s /run/current-system/sw/bin/fish
-#    Open a new terminal afterwards. fish is configured in modules/home/shell.nix.
+#    Open a new terminal afterwards. fish is configured in modules/home/common/shell.nix.
 ```
 
 > Note: the Determinate installer ships *Determinate Nix*, which manages the Nix daemon

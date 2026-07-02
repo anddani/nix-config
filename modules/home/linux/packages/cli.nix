@@ -46,7 +46,7 @@
     wezterm
   ];
 
-  xdg.configFile."wezterm/wezterm.lua".source = ../../../dotfiles/.config/wezterm/wezterm.lua;
+  xdg.configFile."wezterm/wezterm.lua".source = ../../../../dotfiles/.config/wezterm/wezterm.lua;
 
   catppuccin = {
     btop.enable = true;
