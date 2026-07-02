@@ -1,9 +1,0 @@
-directory: ~/Music
-library: ~/Music/library.db
-
-import:
-  move: yes          # move files into organized structure
-  write: yes         # write tags to files
-
-paths:
-  default: $albumartist/$album/$track - $title
