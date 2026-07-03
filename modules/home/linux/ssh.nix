@@ -1,12 +1,11 @@
 { ... }:
 {
-  programs.ssh.matchBlocks = {
-    github.identityFile = "~/.ssh/id_github";
+  programs.ssh.settings = {
+    "github.com".IdentityFile = "~/.ssh/id_github";
 
-    aur = {
-      host = "aur.archlinux.org";
-      user = "aur";
-      identityFile = "~/.ssh/id_github";
+    "aur.archlinux.org" = {
+      User = "aur";
+      IdentityFile = "~/.ssh/id_github";
     };
   };
 

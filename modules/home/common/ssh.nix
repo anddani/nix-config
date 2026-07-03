@@ -5,29 +5,29 @@
 
     enableDefaultConfig = false;
 
-    matchBlocks = {
+    # Attribute names are Host patterns; values use OpenSSH directive names.
+    settings = {
       "*" = {
-        addKeysToAgent = "1h";
+        AddKeysToAgent = "1h";
 
-        controlMaster = "auto";
-        controlPath = "~/.ssh/control-%r@%h:%p";
-        controlPersist = "10m";
+        ControlMaster = "auto";
+        ControlPath = "~/.ssh/control-%r@%h:%p";
+        ControlPersist = "10m";
 
-        forwardAgent = false;
-        compression = false;
-        serverAliveInterval = 0;
-        serverAliveCountMax = 3;
-        hashKnownHosts = false;
-        userKnownHostsFile = "~/.ssh/known_hosts";
+        ForwardAgent = false;
+        Compression = false;
+        ServerAliveInterval = 0;
+        ServerAliveCountMax = 3;
+        HashKnownHosts = false;
+        UserKnownHostsFile = "~/.ssh/known_hosts";
       };
 
-      # identityFile is platform-specific, set in linux/ssh.nix and darwin/ssh.nix
-      github = {
-        host = "github.com";
-        hostname = "ssh.github.com";
-        user = "git";
-        port = 443;
-        identitiesOnly = true;
+      # IdentityFile is platform-specific, set in linux/ssh.nix and darwin/ssh.nix
+      "github.com" = {
+        HostName = "ssh.github.com";
+        User = "git";
+        Port = 443;
+        IdentitiesOnly = true;
       };
     };
   };
