@@ -8,6 +8,7 @@
     ./fastfetch/fastfetch.nix
     ./foot.nix
     ./gaming.nix
+    ./ghostty.nix
     ./gnome.nix
     ./gtk.nix
     ./nemo.nix

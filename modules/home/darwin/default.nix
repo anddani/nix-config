@@ -6,4 +6,5 @@
     ./ssh.nix # ssh (slim, no systemd ssh-agent)
     ./packages.nix # macOS CLI packages
   ];
+  xdg.configFile."ghostty/config".source = ../../../dotfiles/.config/ghostty/config;
 }

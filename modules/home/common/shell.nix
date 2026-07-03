@@ -53,6 +53,7 @@
       interactiveShellInit = ''
         set fish_greeting
         set PATH $PATH ~/.cargo/bin
+        fish_vi_key_bindings
       '';
 
       shellAliases = {

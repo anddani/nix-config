@@ -3,7 +3,6 @@
   home.packages = with pkgs; [
     ## Better core utils
     man-pages # extra man pages
-    ncdu # disk space
 
     ## Tools / useful cli
     swappy # snapshot editing tool
@@ -30,6 +29,10 @@
     winetricks
     wineWow64Packages.waylandFull
     wezterm
+    inotify-tools
+    chromium
+    android-studio
+    claude-code
   ];
 
   xdg.configFile."wezterm/wezterm.lua".source = ../../../../dotfiles/.config/wezterm/wezterm.lua;

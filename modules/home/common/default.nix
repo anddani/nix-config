@@ -5,8 +5,9 @@
   catppuccin.autoEnable = false;
 
   imports = [
+    ./dev.nix
     ./git.nix
-    ./helix
+    ./helix.nix
     ./packages.nix
     ./shell.nix
     ./ssh.nix

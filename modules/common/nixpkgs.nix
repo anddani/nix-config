@@ -5,7 +5,7 @@
       nur.overlays.default
       elixir-overlay.overlays.default
       (_final: prev: {
-        magi = magi.packages.${prev.system}.default;
+        magi = magi.packages.${prev.stdenv.hostPlatform.system}.default;
       })
       (final: _prev: {
         dexter = final.callPackage ../../pkgs/dexter.nix { src = inputs.dexter-src; };

@@ -13,6 +13,10 @@
     coreutils
   ];
 
+  environment.variables = {
+    EDITOR = "hx";
+  };
+
   system.defaults = {
     dock = {
       autohide = true;

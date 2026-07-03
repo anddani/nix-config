@@ -7,7 +7,7 @@
     ./font.nix
     ./hardware.nix
     ./network.nix
-    ./nixpkgs.nix
+    ../common/nixpkgs.nix
     ./program.nix
     ./security.nix
     ./services.nix

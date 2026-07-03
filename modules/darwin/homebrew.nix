@@ -31,6 +31,8 @@
       "obsidian"
       "rectangle"
       "claude-code"
+      "ghostty"
+      "bitwarden"
     ];
 
     onActivation = {
