@@ -60,12 +60,13 @@
         ".." = "cd ..";
         "..." = "cd ../..";
         "...." = "cd .././..";
-        l = "eza -l";
+        l = "eza -la";
         la = "eza -la";
         grep = "rg";
         c = "clear";
         lg = "lazygit";
         cd = "z";
+        cr = "cargo run";
       };
 
       plugins = [

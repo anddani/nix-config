@@ -295,11 +295,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1777329175,
-        "narHash": "sha256-11M4UV+WMAowDnVR8OOMmE7b3KwCjnHub9mNu6KCU/I=",
+        "lastModified": 1784761174,
+        "narHash": "sha256-5fICTYVOpiHCgxjighfenouDpaB2rzrpmJyfd+3LF0Q=",
         "owner": "anddani",
         "repo": "magi",
-        "rev": "4cdc625fc53c6c1dae078d7cae2e9aa3e297685c",
+        "rev": "1f7af3d03ad45582b96c27222a1c325f776685b0",
         "type": "github"
       },
       "original": {
