@@ -9,88 +9,96 @@
   programs.noctalia = {
     enable = true;
     settings = {
-      # configure noctalia here; defaults will
-      # be deep merged with these attributes.
       bar = {
-        position = "top";
-        showCapsule = false;
-        widgets = {
-          left = [
-            {
-              id = "ControlCenter";
-              useDistroLogo = true;
-            }
-            # {
-            #   id = "SidePanelToggle";
-            #   useDistroLogo = true;
-            # }
-            {
-              id = "ActiveWindow";
-              colorizeIcons = false;
-              hideMode = "hidden";
-              maxWidth = 145;
-              scrollingMode = "hover";
-              showIcon = true;
-              useFixedWidth = false;
-            }
+        order = [ "main" ];
+        main = {
+          enabled = true;
+          position = "top";
+          capsule = false;
+          margin_ends = 0;
+          radius = 0;
+          font_family = "JetBrainsMono Nerd Font";
+
+          start = [
+            "control-center"
+            "active_window"
           ];
-          center = [
-            {
-              hideUnoccupied = false;
-              id = "Workspace";
-              labelMode = "none";
-            }
+
+          center = [ "workspaces" ];
+
+          end = [
+            "cpu_usage"
+            "cpu_temp"
+            "disk_pct"
+            "ram_usage"
+            "ram_pct"
+            "tray"
+            "bluetooth"
+            "volume"
+            "keyboard_layout"
+            "clock"
           ];
-          right = [
-            {
-              id = "SystemMonitor";
-              diskPath = "/";
-              showCpuTemp = true;
-              showCpuUsage = true;
-              showDiskUsage = true;
-              showDiskAsPercent = true;
-              showMemoryAsPercent = true;
-              showMemoryUsage = true;
-              showNetworkStats = false;
-              usePrimaryColor = false;
-            }
-            {
-              id = "Tray";
-            }
-            {
-              id = "Bluetooth";
-            }
-            {
-              id = "Volume";
-            }
-            {
-              id = "KeyboardLayout";
-              displayMode = "forceOpen";
-            }
-            {
-              id = "Clock";
-              formatHorizontal = "HH:mm ddd, MMM dd";
-              formatVertical = "HH mm";
-              useMonospacedFont = true;
-              usePrimaryColor = true;
-            }
-          ];
+
         };
       };
-      colorSchemes.predefinedScheme = "Kanagawa";
-      dock.enabled = false;
-      general = {
-        radiusRatio = 0.2;
+
+      widget = {
+        active_window = {
+          max_length = 145;
+          title_scroll = "on_hover";
+        };
+
+        workspaces = {
+          style = "regular";
+          display = "none";
+          hide_when_empty = false;
+        };
+
+        cpu_usage = {
+          type = "sysmon";
+          stat = "cpu_usage";
+        };
+
+        cpu_temp = {
+          type = "sysmon";
+          stat = "cpu_temp";
+        };
+
+        disk_pct = {
+          type = "sysmon";
+          stat = "disk_pct";
+          path = "/";
+        };
+
+        ram_used = {
+          type = "sysmon";
+          stat = "ram_used";
+        };
+
+        ram_pct = {
+          type = "sysmon";
+          stat = "ram_pct";
+        };
+
+        clock = {
+          format = "{:%H:%M %a, %b %d}";
+        };
       };
+
+      theme = {
+        source = "builtin";
+        builtin = "Kanagawa";
+      };
+
       location = {
-        monthBeforeDay = false;
-        weatherEnabled = true;
-        weatherShowEffects = true;
-        useFahrenheit = false;
-        name = "Palo Alto, US";
+        auto_locate = false;
+        address = "Palo Alto, US";
+      };
+      weather = {
+        enabled = true;
+        unit = "metric";
+        effects = true;
       };
     };
-    # this may also be a string or a path to a JSON file,
-    # but in this case must include *all* settings.
   };
 }

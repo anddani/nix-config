@@ -6,6 +6,8 @@
 //
 input {
     keyboard {
+        repeat-delay 300
+        repeat-rate 40
         xkb {
             layout "us,se"
             options "grp:alt_space_toggle"
