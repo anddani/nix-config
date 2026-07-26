@@ -63,6 +63,9 @@
       enable = true;
       openFirewall = true; # web UI on :9091
       vpn.enable = true;
+      # Required when vpn.enable is set (the module rejects the null default).
+      # Mullvad has no port forwarding, so inbound peers can't reach it anyway.
+      peerPort = 51413;
     };
   };
 }
