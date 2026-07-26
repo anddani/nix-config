@@ -22,6 +22,11 @@
         UserKnownHostsFile = "~/.ssh/known_hosts";
       };
 
+      "t480" = {
+        HostName = "t480.local";
+        User = "anddani";
+      };
+
       # IdentityFile is platform-specific, set in linux/ssh.nix and darwin/ssh.nix
       "github.com" = {
         HostName = "ssh.github.com";

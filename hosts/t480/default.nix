@@ -24,6 +24,18 @@
   # user.nix sets fish as the login shell
   programs.fish.enable = true;
 
+  # mDNS: reachable as t480.local from the Mac
+  services.avahi = {
+    enable = true;
+    publish = {
+      enable = true;
+      addresses = true;
+    };
+  };
+
+  # Couch machine — log the console in automatically
+  services.getty.autologinUser = username;
+
   # Intel QuickSync so Jellyfin can hardware-transcode when a client needs it
   hardware.graphics = {
     enable = true;
