@@ -1,7 +1,23 @@
-{ username, ... }:
+{ lib, username, ... }:
 {
   # Write access to the library dirs (they're setgid `media`, mode 2775)
   users.users.${username}.extraGroups = [ "media" ];
+
+  # VPN-Confinement doesn't reliably mount the namespace's resolv.conf into
+  # confined services when /etc/resolv.conf is a NetworkManager-managed
+  # symlink, leaving them without DNS (providers fail with
+  # "Temporary failure in name resolution"). Mount it explicitly.
+  systemd.services =
+    lib.genAttrs
+      [
+        "radarr"
+        "sonarr"
+        "prowlarr"
+        "bazarr"
+      ]
+      (_: {
+        serviceConfig.BindReadOnlyPaths = [ "/etc/netns/wg/resolv.conf:/etc/resolv.conf" ];
+      });
 
   # External HDD with the DVD backups. On the T480, find the drive with
   # `lsblk -f` and put its UUID here. If the drive is NTFS/exFAT, reformat
