@@ -1,7 +1,7 @@
-{ pkgs, host, ... }:
+{ pkgs, hostname, ... }:
 {
   networking = {
-    hostName = "desktop";
+    hostName = hostname;
     networkmanager.enable = true;
   };
 

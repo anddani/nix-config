@@ -27,6 +27,12 @@
       flake = false;
     };
 
+    # Media server (Jellyfin + *arr apps) for the t480
+    nixarr = {
+      url = "github:nix-media-server/nixarr";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-gaming.url = "github:fufexan/nix-gaming";
     nix-flatpak.url = "github:gmodena/nix-flatpak";
 
@@ -64,6 +70,17 @@
             inherit self inputs;
             host = "desktop";
             hostname = "desktop";
+            username = "anddani";
+          };
+        };
+
+        t480 = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [ ./hosts/t480 ];
+          specialArgs = {
+            inherit self inputs;
+            host = "t480";
+            hostname = "t480";
             username = "anddani";
           };
         };
