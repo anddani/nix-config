@@ -27,6 +27,11 @@
     # the services survive the drive being unplugged.
     stateDir = "/var/lib/nixarr";
 
+    vpn = {
+      enable = true;
+      wgConf = "/var/lib/nixarr/wg.conf";
+    };
+
     jellyfin = {
       enable = true;
       # Reachable from the TV app on http://t480:8096
@@ -36,23 +41,28 @@
     radarr = {
       enable = true;
       openFirewall = true; # web UI on :7878
+      vpn.enable = true;
     };
     sonarr = {
       enable = true;
       openFirewall = true; # web UI on :8989
+      vpn.enable = true;
     };
     prowlarr = {
       enable = true;
       openFirewall = true; # web UI on :9696
+      vpn.enable = true;
     };
     bazarr = {
       enable = true;
       openFirewall = true; # web UI on :6767
+      vpn.enable = true;
     };
 
     transmission = {
       enable = true;
       openFirewall = true; # web UI on :9091
+      vpn.enable = true;
     };
   };
 }
