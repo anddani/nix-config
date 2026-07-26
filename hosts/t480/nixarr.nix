@@ -1,5 +1,8 @@
-{ ... }:
+{ username, ... }:
 {
+  # Write access to the library dirs (they're setgid `media`, mode 2775)
+  users.users.${username}.extraGroups = [ "media" ];
+
   # External HDD with the DVD backups. On the T480, find the drive with
   # `lsblk -f` and put its UUID here. If the drive is NTFS/exFAT, reformat
   # to ext4 first — nixarr's user/permission model needs a POSIX filesystem.
