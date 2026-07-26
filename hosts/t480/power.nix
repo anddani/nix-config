@@ -13,10 +13,10 @@
     HandleLidSwitchExternalPower = "ignore";
     HandleLidSwitchDocked = "ignore";
   };
-  systemd.sleep.extraConfig = ''
-    AllowSuspend=no
-    AllowHibernation=no
-  '';
+  systemd.sleep.settings.Sleep = {
+    AllowSuspend = false;
+    AllowHibernation = false;
+  };
 
   # Plugged in permanently: cap charge at 80% so the battery survives,
   # while still acting as a built-in UPS. T480 has two batteries:
