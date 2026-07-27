@@ -1,5 +1,8 @@
-{ username, ... }:
+{ pkgs, username, ... }:
 {
+  # `sensors` for CPU/fan temperature readout
+  environment.systemPackages = [ pkgs.lm_sensors ];
+
   # Headless box — manage it over SSH
   services.openssh.enable = true;
 
