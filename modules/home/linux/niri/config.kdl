@@ -191,6 +191,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     Mod+Shift+N hotkey-overlay-title="restart noctalia" repeat=false { spawn-sh "restart-noctalia"; }
+    Mod+Shift+B hotkey-overlay-title="toggle noctalia bar" repeat=false { spawn-sh "noctalia msg bar-toggle"; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return hotkey-overlay-title="Open a Terminal " { spawn "footclient"; }
