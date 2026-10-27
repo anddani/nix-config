@@ -37,6 +37,7 @@
       "musicbrainz-picard"
       "kitty"
       "emacs"
+      "openmtp"
     ];
 
     onActivation = {
