@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   # macOS-only home modules. The cross-platform set (git, shell, zellij,
   # helix, …) comes from ../common, imported by the host next to this.
@@ -7,4 +7,6 @@
     ./packages.nix # macOS CLI packages
   ];
   xdg.configFile."ghostty/config".source = ../../../dotfiles/.config/ghostty/config;
+  services.podman.enable = true;
+  home.packages = [ pkgs.podman-compose ];
 }
