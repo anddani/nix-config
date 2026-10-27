@@ -24,6 +24,10 @@
     terraform
     terraform-ls
 
+    # Java
+    jdk21
+    gradle
+
     # Python
     python3
     python312Packages.ipython
