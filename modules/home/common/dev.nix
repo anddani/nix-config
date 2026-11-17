@@ -13,8 +13,8 @@
     gleam
 
     # Elixir
-    (elixir-with-otp erlang_28).latest
-    erlang_28
+    (elixir-with-otp beam28Packages.erlang).latest
+    beam28Packages.erlang
     beam28Packages.expert
     elixir-ls
     dexter
