@@ -7,6 +7,7 @@
     nixfmt
     vhs
     ncdu
+    git-lfs
     
     # Gleam
     rebar3
