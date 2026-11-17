@@ -46,5 +46,6 @@ display-inlay-hints = true
     ':open %sh{cat /tmp/yazi-file}',
     ':redraw',
 ]
+"o" = [":write", ":sh md-preview %{buffer_name}"]
 "m" = ":sh zellij run -c -f -x 10%% -y 10%% --width 80%% --height 80%% -- magi"
 
