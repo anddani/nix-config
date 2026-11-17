@@ -22,6 +22,8 @@
     mpd
     mpc
 
+    typst
+
     ## Language servers
     tailwindcss-language-server
   ];
