@@ -36,7 +36,7 @@
       "bitwarden"
       "musicbrainz-picard"
       "kitty"
-      "emacs"
+      "emacs-app"
       "openmtp"
     ];
 
