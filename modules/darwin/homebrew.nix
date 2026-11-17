@@ -28,7 +28,7 @@
     brews = [ ];
     casks = [
       "wezterm"
-      "cog"
+      "cog-app"
       "obsidian"
       "rectangle"
       "claude-code"
